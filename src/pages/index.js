@@ -256,12 +256,14 @@ class Index extends React.Component {
         </Grid>
         <Grid item xs={1} md={2}></Grid>
         <Grid item xs={10} md={8} align="center" className={classes.getInTouch}>
-          <form className={classes.container} noValidate autoComplete="off">
+          <form className={classes.container} name="getInTouch" method="POST" netlify autoComplete="off">
           <TextField
             defaultValue="email"
             id="bootstrap-input"
             InputProps={{
             disableUnderline: true,
+            name: "email",
+            type: "email",
             classes: {
               root: classes.bootstrapRoot,
               input: classes.bootstrapInput
