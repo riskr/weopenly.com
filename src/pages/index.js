@@ -256,6 +256,7 @@ class Index extends React.Component {
         </Grid>
         <Grid item xs={1} md={2}></Grid>
         <Grid item xs={10} md={8} align="center" className={classes.getInTouch}>
+          <form className={classes.container} noValidate autoComplete="off">
           <TextField
             defaultValue="email"
             id="bootstrap-input"
@@ -269,10 +270,10 @@ class Index extends React.Component {
             InputLabelProps={{
             className: classes.bootstrapFormLabel
           }}/>
-          <Button variant="outlined" className={classes.button}>
+          <Button variant="outlined" type="submit" className={classes.button}>
             Get updates
           </Button>
-
+          </form>
         </Grid>
         <Grid item xs={1} md={2}></Grid>
       </Grid>

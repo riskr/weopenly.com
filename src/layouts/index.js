@@ -72,7 +72,6 @@ class DetailTemplate extends React.Component {
                         </Typography>
                     </div>
                     <div>
-
                         <Button size="small" component={Link} to="/about">
                             Who we are
                         </Button>
