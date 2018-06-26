@@ -129,26 +129,7 @@ class Index extends React.Component {
                     <title>{`Openly spotlight | Localgov.fyi`} </title>
                     <meta name="description" content={`Openly spotlight for local governments `} />
                 </Helmet>
-                <Grid item md={1}/>
-                <Grid item xs={12} sm={12} md={2} className={classes.headerLogo}>
-                    <Typography align="left" variant="headline" component="span">
-                        Openly
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} sm={12} md={8} className={classes.headerNav}>
-                    <span>
-                        about
-                    </span>
-
-                    <span>
-                        privacy
-                    </span>
-
-                    <span>
-                        terms of service
-                    </span>
-                </Grid>
-                <Grid item md={1}/> {/* hero section end */}
+                 {/* hero section end */}
 
                 {/* hero section start */}
                 <Grid container className={classes.heroSection} spacing={0}>

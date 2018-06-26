@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://localgov.fyi/sitemap.xml
+Host: https://localgov.fyi

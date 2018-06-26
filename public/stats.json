@@ -1,0 +1,60 @@
+{
+  "assetsByChunkName": {
+    "component---src-pages-privacy-js": [
+      "component---src-pages-privacy-js-928fe8998537ed879248.js",
+      "component---src-pages-privacy-js-928fe8998537ed879248.js.map"
+    ],
+    "path---spotlight": [
+      "path---spotlight-576910d069e6420166cb.js",
+      "path---spotlight-576910d069e6420166cb.js.map"
+    ],
+    "component---src-pages-index-js": [
+      "component---src-pages-index-js-9fcc155a691988e00f43.js",
+      "component---src-pages-index-js-9fcc155a691988e00f43.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---terms": [
+      "path---terms-f919c947baa1b30869d8.js",
+      "path---terms-f919c947baa1b30869d8.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-6c0a674af57ecf101137.js",
+      "component---src-layouts-index-js-6c0a674af57ecf101137.js.map"
+    ],
+    "path---index": [
+      "path---index-a89aef62f4170e95303c.js",
+      "path---index-a89aef62f4170e95303c.js.map"
+    ],
+    "path---privacy": [
+      "path---privacy-a0e39f21c11f6a62c5ab.js",
+      "path---privacy-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "commons": [
+      "commons-7caf2a346d48ec62f63b.js",
+      "commons-7caf2a346d48ec62f63b.js.map"
+    ],
+    "app": [
+      "app-2d9d4fa9cb54748e2ec6.js",
+      "app-2d9d4fa9cb54748e2ec6.js.map"
+    ],
+    "component---src-pages-about-js": [
+      "component---src-pages-about-js-b2b9fead7592d6044bc0.js",
+      "component---src-pages-about-js-b2b9fead7592d6044bc0.js.map"
+    ],
+    "component---src-pages-terms-js": [
+      "component---src-pages-terms-js-25671fa44aaf955c8e96.js",
+      "component---src-pages-terms-js-25671fa44aaf955c8e96.js.map"
+    ],
+    "path---about": [
+      "path---about-a0e39f21c11f6a62c5ab.js",
+      "path---about-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-spotlight-js": [
+      "component---src-pages-spotlight-js-1d2f2bed5a3992cfbb3e.js",
+      "component---src-pages-spotlight-js-1d2f2bed5a3992cfbb3e.js.map"
+    ]
+  }
+}

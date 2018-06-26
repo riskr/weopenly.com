@@ -121,6 +121,14 @@ const theme = createMuiTheme({
         fontWeightLight: 300,
         fontWeightRegular: 400,
         fontWeightMedium: 500,
+        display3: {
+            fontSize: "2.05rem",
+            fontWeight: 600,
+            fontFamily: '"Poppins", sans-serif, "Helvetica", "Arial", sans-serif',
+            lineHeight: "1.30588em",
+            marginLeft: "-.04em",
+            color: "rgba(30, 30, 50,0.54)"
+        },
         display2: {
             fontSize: "1.75rem",
             fontWeight: 300,
@@ -130,7 +138,7 @@ const theme = createMuiTheme({
             color: "rgba(30, 30, 50,0.54)"
         },
         display1: {
-            fontSize: "1.6rem",
+            fontSize: "1.2rem",
             fontWeight: 600,
             fontFamily: '"Poppins", sans-serif, "Helvetica", "Arial", sans-serif',
             lineHeight: "1.20588em",
