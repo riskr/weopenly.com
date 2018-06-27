@@ -209,7 +209,6 @@ class Index extends React.Component {
           <Grid item md={2}/>
           <Grid item xs={12} md={3}>
             <Card className={classes.card}>
-              <SearchIcon  />
               <CardContent>
                 <Typography gutterBottom variant="display1" component="h1">
                   Localgov.fyi
@@ -228,13 +227,12 @@ class Index extends React.Component {
           <Grid item xs={12} md={2}/>
             <Grid item xs={12} md={3}>
             <Card className={classes.card}>
-                <Gov />
               <CardContent>
                 <Typography gutterBottom variant="display1" component="h1">
                   Spotlight
                 </Typography>
                 <Typography variant="body1" component="p">
-                  The fastest way to access gov services
+The fastest way to access government services
                 </Typography>
               </CardContent>
               <CardActions>

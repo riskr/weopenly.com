@@ -55,18 +55,25 @@ class ContactForm extends Component {
             success: false,
             failure: false,
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
     handleSubmit = e => {
+        let currentLoc = '';
+        if (window.location && window.location.pathname){
+            currentLoc = window.location.pathname
+        }
+
         fetch("/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: encode({
-                "form-name": "contact",
-                ...this.state
+                "form-name": "getInTouch",
+                "path": currentLoc,
+                "email": this.state.email,
             })
         }).then(() => this.setState({
             success: true
@@ -85,6 +92,7 @@ class ContactForm extends Component {
         return (
             <Fragment>
             <form onSubmit={this.handleSubmit} data-netlify="true" data-netlify-honeypot="bot-field" className={classes.container} name="getInTouch">
+
                 <label className={classes.bootstrapFormLabel}>
                     <input placeholder="your@email.com" className={classes.bootstrapInput} type="email" name="email" value={name} onChange={this.handleChange}/>
                 </label>
