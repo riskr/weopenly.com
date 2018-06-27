@@ -1,4 +1,4 @@
 {
-  "main.js": "render-page.js",
+  "main.js": "bundle-for-css.js",
   "main.js.map": "render-page.js.map"
 }
