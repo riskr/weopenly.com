@@ -83,9 +83,9 @@ class DetailTemplate extends React.Component {
                         </Button>
                     </div>
                 </Grid>
-                <Grid item md={1}/> {this
-                    .props
-                    .children()}
+                <Grid item md={1}/> 
+                
+                {this.props.children()}
             </Grid>
         );
     }

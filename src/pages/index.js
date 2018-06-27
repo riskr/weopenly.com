@@ -17,6 +17,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import {withStyles} from '@material-ui/core/styles';
+import ContactForm from '../components/ContactForm';
+
 import withRoot from '../withRoot';
 
 
@@ -91,13 +93,7 @@ features:{
   marginTop: theme.spacing.unit * 16,
   marginBotton: theme.spacing.unit * 16,
 },
-  bootstrapRoot: {
-    padding: 0,
-    'label + &': {
-      marginTop: theme.spacing.unit * 3
-    },
-    marginBotton: theme.spacing.unit
-  },
+ 
   getInTouch: {
     marginTop: theme.spacing.unit * 12,
     marginBottom: theme.spacing.unit * 6,
@@ -107,21 +103,9 @@ features:{
   },
   card: {
     minHeight: '160px',
+    position: 'relative',
     boxShadow: `0 0 10px 5px ${theme.palette.primary["A200"]}`,
     borderTop : `6px solid ${theme.palette.primary["500"]}`
-  },
-  bootstrapInput: {
-    borderRadius: 3,
-    backgroundColor: theme.palette.primary['50'],
-    color: theme.palette.primary['200'],
-    border: '1px solid #ced4da',
-    fontSize: 16,
-    padding: '8px 12px 10px 12px',
-    width: 'calc(100% - 24px)',
-
-    transition: theme
-      .transitions
-      .create(['border-color', 'box-shadow'])
   }
 });
 
@@ -133,13 +117,23 @@ const SearchIcon = props => (
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth={1}
-    viewBox="4 4 24 24"
-    width="4em"
-    height="4em"
-    style={{'position': 'absolute', 'opacity': '0.5'}}
+viewBox = "0 0 40 60"
+width = "4em"
+height = "5em"
+    style={{'position': 'absolute', 'opacity': '0.5', right: '0', bottom: '0'}}
     {...props}>
-    <circle cx={10.5} cy={10.5} r={7.5}/>
-    <path d="M21 21l-5.2-5.2"/>
+    <g
+      fill="none"
+      stroke="#AB93FF"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeMiterlimit={10}
+    >
+      <circle cx={32} cy={25} r={16} strokeWidth={2} />
+      <path d="M40.9 44.1l-2.1-4.6" />
+      <path strokeWidth={1} d="M40.9 44.1L46 55" />
+      <path d="M36.2 13.7c2.7 1 4.9 2.9 6.3 5.3" />
+    </g>
   </svg>
 );
 
@@ -148,10 +142,10 @@ const Gov = props => (
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth={1}
-    viewBox="40 80 102 102"
+    viewBox="0 0 80 80"
     width="4em"
     height="8em"
-    style={{ 'position': 'absolute', 'opacity': '0.5' }}{...props}>
+    style={{ 'position': 'absolute', 'opacity': '0.5', right: '0', bottom: '0' }}{...props}>
     <path
       d="M66.083 49.11H18.92c-2.125 0-2.784-2.877-.87-3.802l41.713-19.695a8 8 0 0 1 6.831 0l41.713 19.695c1.914.925 1.256 3.801-.87 3.801H101M77.917 49.109h-2.834M25 92V50M101 50v42M107.68 105h-89c-2.141 0-3.593-2.178-2.77-4.154l2.5-6A3 3 0 0 1 21.18 93h84a3 3 0 0 1 2.769 1.846l2.5 6c.823 1.976-.629 4.154-2.77 4.154zM37 92.11v-29a6 6 0 1 1 12 0v29M77 92.11v-29a6 6 0 1 1 12 0v29M57 92.11v-29a6 6 0 1 1 12 0v29"
       fill="none"
@@ -256,26 +250,7 @@ class Index extends React.Component {
         </Grid>
         <Grid item xs={1} md={2}></Grid>
         <Grid item xs={10} md={8} align="center" className={classes.getInTouch}>
-          <form className={classes.container} name="getInTouch" method="POST" netlify autoComplete="off">
-          <TextField
-            defaultValue="email"
-            id="bootstrap-input"
-            InputProps={{
-            disableUnderline: true,
-            name: "email",
-            type: "email",
-            classes: {
-              root: classes.bootstrapRoot,
-              input: classes.bootstrapInput
-            }
-          }}
-            InputLabelProps={{
-            className: classes.bootstrapFormLabel
-          }}/>
-          <Button variant="outlined" type="submit" className={classes.button}>
-            Get updates
-          </Button>
-          </form>
+          <ContactForm />
         </Grid>
         <Grid item xs={1} md={2}></Grid>
       </Grid>
