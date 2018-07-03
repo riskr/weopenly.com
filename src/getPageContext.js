@@ -122,7 +122,7 @@ const theme = createMuiTheme({
         fontWeightRegular: 400,
         fontWeightMedium: 500,
         display3: {
-            fontSize: "2.05rem",
+            fontSize: "2.75rem",
             fontWeight: 600,
             fontFamily: '"Poppins", sans-serif, "Helvetica", "Arial", sans-serif',
             lineHeight: "1.30588em",
@@ -174,10 +174,10 @@ const theme = createMuiTheme({
             color: "rgba(30, 30, 50,0.87)"
         },
         body1: {
-            fontSize: "0.975rem",
+            fontSize: "1.15rem",
             fontWeight: 300,
             fontFamily: '"Nunito Sans", sans-serif, "Helvetica", "Arial", sans-serif',
-            lineHeight: "1.46429em",
+            lineHeight: "1.72711",
             color: "rgba(30, 30, 50,0.87)"
         },
         caption: {

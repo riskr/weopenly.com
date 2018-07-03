@@ -18,9 +18,21 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center'
   },
+  heroSection: {
+    marginTop: theme.spacing.unit * 12,
+    marginBotton: theme.spacing.unit* 16,
+  },
+  headline: {
+    marginTop: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 3,
+    color: theme.palette.primary['500'],
+  },
+  headline2: {
+    color: theme.palette.primary['500'],
+  },
   getInTouchEmail: {
     color: '#fff'
-  }
+  },
 });
 
 class Index extends React.Component {
@@ -28,27 +40,69 @@ class Index extends React.Component {
     const {classes} = this.props;
 
     return (
-      <Grid container spacing={16}>
+      <Grid container spacing={16}>{/*
         <Grid item xs={1} />
-        <Grid item xs={11} className={classes.aboutContentHeader}>
+        <Grid item xs={10} className={classes.aboutContentHeader}>
           <Helmet>
             <title>{`Openly | Localgov.fyi`}
             </title>
             <meta
               name="description"
-              content={`Openly, organizing world's governance information`} />
+              content={`Openly, organizing world's governance information`}
+            />
           </Helmet>
-          <Typography align={isMobileOnly ? `center` : `left`} variant="display1" component="p">
-            Who we are
-              </Typography>
         </Grid>
         <Grid item xs={1} />
-        <Grid item xs={10} className={classes.aboutContentHeader}>
-          <Typography align={isMobileOnly ? `center` : `left`} variant="body1" component="p">
-            {`We are a team of 4 with full of fire, when fire fires the fire, fire fires you, We're not fire, we're the truth.`}
+        <Grid item xs={1} />
+        <Grid item xs={10} className={classes.heroSection}>
+          <Typography
+            variant="display3"
+            align="center"
+            component="h1"
+            className={classes.headline}
+            gutterBottom
+          >
+            We are on a mission to make every government service accessible online.
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            component="p"
+            className={classes.subhead}
+          >
+            We believe that unhindered access to government services is essential to move our society forward.
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            component="p"
+            className={classes.subhead}
+            gutterBottom
+          >
+            We are starting by making it easier than ever to find any local government service with our search and integrate it into any government website.
           </Typography>
         </Grid>
         <Grid item xs={1} />
+        <Grid item xs={1} />
+        <Grid item xs={10}>
+          <Typography
+            variant="display3"
+            align="center"
+            component="h1"
+            className={classes.headline}
+          >
+            Making it easier to find government services is just a start. We want to enable delightful governance delivered at your convenience.
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            component="p"
+            className={classes.subhead}
+          >
+            We are a small team (& a large support network) building Openly and finding our way through the labyrinth of governance.
+          </Typography>
+        </Grid>
+        <Grid item xs={1} />*/}
       </Grid>
     );
   }

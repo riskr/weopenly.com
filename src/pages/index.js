@@ -50,7 +50,7 @@ const styles = theme => ({
       background: theme.palette.common.white,
       WebkitFontSmoothing: "antialiased", // Antialiasing.
       MozOsxFontSmoothing: "grayscale", // Antialiasing.
-      height: "100%"
+      height: "100%",
     },
     body: {
       margin: 0,
@@ -60,16 +60,16 @@ const styles = theme => ({
       width: "100%",
       overflowWrap: "break-word",
       overflowY: "scroll",
-      overflowX: "hidden"
+      overflowX: "hidden",
     },
     "body>div": {
       display: "block",
-      height: "100%"
+      height: "100%",
     },
     "body>div>div": {
       display: "block",
-      height: "100%"
-    }
+      height: "100%",
+    },
   },
   root: {
     width: "100%",
@@ -78,35 +78,34 @@ const styles = theme => ({
     padding: 0,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   headline: {
     marginTop: theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit * 3,
-    color: theme.palette.primary['500']
+    color: theme.palette.primary['500'],
   },
   heroSection: {
     marginTop: theme.spacing.unit * 12,
     marginBotton: theme.spacing.unit* 16,
   },
-features:{
-  marginTop: theme.spacing.unit * 16,
-  marginBotton: theme.spacing.unit * 16,
-},
- 
+  features:{
+    marginTop: theme.spacing.unit * 16,
+    marginBotton: theme.spacing.unit * 16,
+  },
   getInTouch: {
     marginTop: theme.spacing.unit * 12,
     marginBottom: theme.spacing.unit * 6,
   },
   submit: {
-    marginTop: theme.spacing.unit * 6
+    marginTop: theme.spacing.unit * 6,
   },
   card: {
     minHeight: '160px',
     position: 'relative',
     boxShadow: `0 0 10px 5px ${theme.palette.primary["A200"]}`,
-    borderTop : `6px solid ${theme.palette.primary["500"]}`
-  }
+    borderTop : `6px solid ${theme.palette.primary["500"]}`,
+  },
 });
 
 
@@ -117,11 +116,12 @@ const SearchIcon = props => (
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth={1}
-viewBox = "0 0 40 60"
-width = "4em"
-height = "5em"
+    viewBox = "0 0 40 60"
+    width = "4em"
+    height = "5em"
     style={{'position': 'absolute', 'opacity': '0.5', right: '0', bottom: '0'}}
-    {...props}>
+    {...props}
+  >
     <g
       fill="none"
       stroke="#AB93FF"
@@ -138,20 +138,22 @@ height = "5em"
 );
 
 const Gov = props => (
-<svg stroke = "#AB93FF"
+  <svg stroke = "#AB93FF"
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth={1}
     viewBox="0 0 80 80"
     width="4em"
     height="8em"
-    style={{ 'position': 'absolute', 'opacity': '0.5', right: '0', bottom: '0' }}{...props}>
+    style={{ 'position': 'absolute', 'opacity': '0.5', right: '0', bottom: '0' }}{...props}
+  >
     <path
       d="M66.083 49.11H18.92c-2.125 0-2.784-2.877-.87-3.802l41.713-19.695a8 8 0 0 1 6.831 0l41.713 19.695c1.914.925 1.256 3.801-.87 3.801H101M77.917 49.109h-2.834M25 92V50M101 50v42M107.68 105h-89c-2.141 0-3.593-2.178-2.77-4.154l2.5-6A3 3 0 0 1 21.18 93h84a3 3 0 0 1 2.769 1.846l2.5 6c.823 1.976-.629 4.154-2.77 4.154zM37 92.11v-29a6 6 0 1 1 12 0v29M77 92.11v-29a6 6 0 1 1 12 0v29M57 92.11v-29a6 6 0 1 1 12 0v29"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={1}/>
+      strokeWidth={1}
+    />
   </svg>
 );
 
@@ -182,24 +184,27 @@ class Index extends React.Component {
             align="center"
             component="h1"
             className={classes.headline}
-            gutterBottom>
-            Delightful governance
+            gutterBottom
+          >
+            Governance made delightful.
           </Typography>
           <Typography
             variant="body1"
             align="center"
             component="p"
             className={classes.subhead}
-            gutterBottom>
-            We think that accessing finding and getting gov services should be delightful.
-            We're building tools to enable seamless local government interactions with
-            citizen, and businesses
+          >
+            We believe that finding and getting government services should be simple and delightful.
           </Typography>
-          <Grid item xs={12} align="center" className={classes.submit}>
-            <Button component={Link} to="/about" variant="outlined" size="small" color="primary" className={classes.button}>
-              Read our story
-        </Button>
-          </Grid>
+          <Typography
+            variant="body1"
+            align="center"
+            component="p"
+            className={classes.subhead}
+            gutterBottom
+          >
+            We're building tools to make all local government interactions seamless for all.
+          </Typography>
         </Grid>
         <Grid item xs={1} md={3}></Grid>
 
@@ -214,13 +219,13 @@ class Index extends React.Component {
                   Localgov.fyi
                 </Typography>
                 <Typography variant="body1" component="p">
-                  Search engine to find local government services
+                  Find any local government service instantly.
                 </Typography>
               </CardContent>
               <CardActions>
-                  <IconButton component={Link} to="https://localgov.fyi" color="primary" className={classes.button} aria-label="Go to localgov.fyi">
-                      <ExitToAppIcon />
-                  </IconButton>
+                <IconButton component={Link} to="https://localgov.fyi" color="primary" className={classes.button} aria-label="Go to localgov.fyi">
+                  <ExitToAppIcon />
+                </IconButton>
               </CardActions>
             </Card>
           </Grid>
@@ -232,19 +237,18 @@ class Index extends React.Component {
                   Spotlight
                 </Typography>
                 <Typography variant="body1" component="p">
-The fastest way to access government services
+                  Powerful localized search for gov websites.
                 </Typography>
               </CardContent>
               <CardActions>
-                  <IconButton component={Link} to="/spotlight" color="primary" className={classes.button} aria-label="Go to openly spotlight search">
-                    <ExitToAppIcon />
-                  </IconButton>
-              
+                <IconButton component={Link} to="/spotlight" color="primary" className={classes.button} aria-label="Go to openly spotlight search">
+                  <ExitToAppIcon />
+                </IconButton>
               </CardActions>
             </Card>
             </Grid>
             <Grid item xs={12} md={2} />
-        </Grid>
+          </Grid>
         </Grid>
         <Grid item xs={1} md={2}></Grid>
         <Grid item xs={10} md={8} align="center" className={classes.getInTouch}>

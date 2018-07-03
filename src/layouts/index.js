@@ -49,7 +49,13 @@ const styles = theme => ({
         bottom: theme.spacing.unit * 2,
         right: theme.spacing.unit * 2,
         zIndex: 1
-    }
+    },
+    button: {
+        textTransform: 'none',
+    },
+    text: {
+        color: 'rgba(30, 30, 50,0.54)'
+    },
 });
 
 class DetailTemplate extends React.Component {
@@ -72,14 +78,11 @@ class DetailTemplate extends React.Component {
                         </Typography>
                     </div>
                     <div>
-                        <Button size="small" component={Link} to="/about">
-                            Who we are
+                        <Button className={classes.button} size="small" component={Link} to="/terms">
+                            <Typography variant="body2" className={classes.text}>Terms</Typography>
                         </Button>
-                        <Button size="small" component={Link} to="/terms">
-                            Terms
-                        </Button>
-                        <Button size="small" component={Link} to="/privacy">
-                            Privacy
+                        <Button className={classes.button} size="small" component={Link} to="/privacy">
+                            <Typography variant="body2" className={classes.text}>Privacy</Typography>
                         </Button>
                     </div>
                 </Grid>
