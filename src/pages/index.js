@@ -115,8 +115,12 @@ const styles = theme => ({
     height: '100vh',
     marginBottom: -88,
   },
-  section: {
+  section2: {
     height: '100vh',
+  },
+  section3: {
+    height: '100vh',
+    marginBottom: -79,
   },
   // fabWrapper: {
   //   display: 'flex',
@@ -317,7 +321,7 @@ class Index extends React.Component {
             </Grid>
           </Grid>
         </div>
-        <div id="section2" className={classes.section}>
+        <div id="section2" className={classes.section2}>
           <Grid container>
             <Grid item xs={1} />
             <Grid item xs={10} className={classes.heroSection}>
@@ -351,7 +355,7 @@ class Index extends React.Component {
             <Grid item xs={1} />
           </Grid>
         </div>
-        <div id="section3" className={classes.section}>
+        <div id="section3" className={classes.section3}>
           <Grid container>
             <Grid item xs={1} />
             <Grid item xs={10}>
