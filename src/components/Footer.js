@@ -59,9 +59,6 @@ class Footer extends Component {
                     Made by <a href="https://weopenly.com" className={classes.a}>Openly</a>
                   </Typography>
               </Grid>
-              <Grid item xs={12} md={2} className={classes.item}>
-                <Feedback />
-              </Grid>
               <Grid item xs={12} md={1} className={classes.item}>
                 <Link to="/terms/" className={classes.link}>
                   <Typography>Terms</Typography>
