@@ -87,6 +87,17 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 3,
     color: theme.palette.primary['500'],
   },
+  headlineAbove: {
+    marginTop: theme.spacing.unit * 12,
+    color: theme.palette.primary['500'],
+  },
+  headlineBetween: {
+    color: theme.palette.primary['500'],
+  },
+  headlineBelow: {
+    marginBottom: theme.spacing.unit * 3,
+    color: theme.palette.primary['500'],
+  },
   heroSection: {
     marginTop: theme.spacing.unit * 12,
     marginBotton: theme.spacing.unit* 16,
@@ -215,7 +226,7 @@ class Index extends React.Component {
   handleClick() {
     if (this.state.section < 3) this.setState({ section: this.state.section + 1 });
     else this.setState({ section: 1 });
-    console.log('section', this.state.section);
+
     document.querySelector(`#section${this.state.section}`).scrollIntoView({
       behavior: 'smooth'
     });
@@ -329,10 +340,26 @@ class Index extends React.Component {
                 variant="display3"
                 align="center"
                 component="h1"
-                className={classes.headline}
+                className={classes.headlineAbove}
+              >
+                We are on a mission
+              </Typography>
+              <Typography
+                variant="display3"
+                align="center"
+                component="h1"
+                className={classes.headlineBetween}
+              >
+                to make every government
+              </Typography>
+              <Typography
+                variant="display3"
+                align="center"
+                component="h1"
+                className={classes.headlineBelow}
                 gutterBottom
               >
-                We are on a mission to make every government service accessible online.
+                service accessible online.
               </Typography>
               <Typography
                 variant="body1"
@@ -340,7 +367,7 @@ class Index extends React.Component {
                 component="p"
                 className={classes.subhead}
               >
-                We believe that unhindered access to government services is essential to move our society forward.
+                We believe that unhindered access to government services is essential
               </Typography>
               <Typography
                 variant="body1"
@@ -349,7 +376,16 @@ class Index extends React.Component {
                 className={classes.subhead}
                 gutterBottom
               >
-                We are starting by making it easier than ever to find any local government service with our search and integrate it into any government website.
+                to move our society forward. We are starting by making it easier than ever
+              </Typography>
+              <Typography
+                variant="body1"
+                align="center"
+                component="p"
+                className={classes.subhead}
+                gutterBottom
+              >
+                to find any local government service with our search and integrate it into any government website.
               </Typography>
             </Grid>
             <Grid item xs={1} />
@@ -358,14 +394,30 @@ class Index extends React.Component {
         <div id="section3" className={classes.section3}>
           <Grid container>
             <Grid item xs={1} />
-            <Grid item xs={10}>
+            <Grid item xs={10} className={classes.heroSection}>
               <Typography
                 variant="display3"
                 align="center"
                 component="h1"
-                className={classes.headline}
+                className={classes.headlineAbove}
               >
-                Making it easier to find government services is just a start. We want to enable delightful governance delivered at your convenience.
+                Making it easier to find government services
+              </Typography>
+              <Typography
+                variant="display3"
+                align="center"
+                component="h1"
+                className={classes.headlineBetween}
+              >
+                is just a start. We want to enable delightful
+              </Typography>
+              <Typography
+                variant="display3"
+                align="center"
+                component="h1"
+                className={classes.headlineBelow}
+              >
+                governance delivered at your convenience.
               </Typography>
               <Typography
                 variant="body1"
@@ -373,7 +425,15 @@ class Index extends React.Component {
                 component="p"
                 className={classes.subhead}
               >
-                We are a small team (& a large support network) building Openly and finding our way through the labyrinth of governance.
+                We are a small team (& a large support network) building Openly
+              </Typography>
+              <Typography
+                variant="body1"
+                align="center"
+                component="p"
+                className={classes.subhead}
+              >
+                and finding our way through the labyrinth of governance.
               </Typography>
             </Grid>
             <Grid item xs={1} />
