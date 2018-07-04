@@ -87,6 +87,9 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 3,
     color: theme.palette.primary['500'],
   },
+  headlineTop: {
+    marginTop: 88,
+  },
   headlineAbove: {
     marginTop: theme.spacing.unit * 12,
     color: theme.palette.primary['500'],
@@ -124,10 +127,15 @@ const styles = theme => ({
   },
   section1: {
     height: '100vh',
-    marginBottom: -88,
+    marginTop: -88,
+    // marginBottom: -88,
   },
   section2: {
     height: '100vh',
+    background: theme.palette.primary['500'],
+  },
+  white: {
+    color: theme.palette.common.white,
   },
   section3: {
     height: '100vh',
@@ -257,7 +265,7 @@ class Index extends React.Component {
                 variant="display3"
                 align="center"
                 component="h1"
-                className={classes.headline}
+                className={[classes.headline, classes.headlineTop]}
                 gutterBottom
               >
                 Governance made delightful.
@@ -275,9 +283,8 @@ class Index extends React.Component {
                 align="center"
                 component="p"
                 className={classes.subhead}
-                gutterBottom
               >
-                We're building tools to make all local government interactions seamless for all.
+                We're building tools to make local government interactions seamless for all.
               </Typography>
             </Grid>
             <Grid item xs={1} md={3}></Grid>
@@ -340,7 +347,7 @@ class Index extends React.Component {
                 variant="display3"
                 align="center"
                 component="h1"
-                className={classes.headlineAbove}
+                className={[classes.headlineAbove, classes.white]}
               >
                 We are on a mission
               </Typography>
@@ -348,7 +355,7 @@ class Index extends React.Component {
                 variant="display3"
                 align="center"
                 component="h1"
-                className={classes.headlineBetween}
+                className={[classes.headlineBetween, classes.white]}
               >
                 to make every government
               </Typography>
@@ -356,7 +363,7 @@ class Index extends React.Component {
                 variant="display3"
                 align="center"
                 component="h1"
-                className={classes.headlineBelow}
+                className={[classes.headlineBelow, classes.white]}
                 gutterBottom
               >
                 service accessible online.
@@ -365,7 +372,7 @@ class Index extends React.Component {
                 variant="body1"
                 align="center"
                 component="p"
-                className={classes.subhead}
+                className={[classes.subhead, classes.white]}
               >
                 We believe that unhindered access to government services is essential
               </Typography>
@@ -373,8 +380,7 @@ class Index extends React.Component {
                 variant="body1"
                 align="center"
                 component="p"
-                className={classes.subhead}
-                gutterBottom
+                className={[classes.subhead, classes.white]}
               >
                 to move our society forward. We are starting by making it easier than ever
               </Typography>
@@ -382,8 +388,7 @@ class Index extends React.Component {
                 variant="body1"
                 align="center"
                 component="p"
-                className={classes.subhead}
-                gutterBottom
+                className={[classes.subhead, classes.white]}
               >
                 to find any local government service with our search and integrate it into any government website.
               </Typography>
@@ -416,6 +421,7 @@ class Index extends React.Component {
                 align="center"
                 component="h1"
                 className={classes.headlineBelow}
+                gutterBottom
               >
                 governance delivered at your convenience.
               </Typography>
