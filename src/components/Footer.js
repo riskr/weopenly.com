@@ -56,7 +56,7 @@ class Footer extends Component {
             <Grid container className={classes.container}>
               <Grid item xs={12} md={6} className={isMobileOnly ? classes.copyrightMobile : classes.copyright}>
                   <Typography>
-                    Made by <a href="https://weopenly.com" className={classes.a}>Openly</a>
+                    Copyright © 2018 Openly Technologies, Inc.
                   </Typography>
               </Grid>
               <Grid item xs={12} md={1} className={classes.item}>

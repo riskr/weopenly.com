@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from "react-helmet";
 import GatsbyLink from "gatsby-link";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -87,11 +93,23 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 3,
     color: theme.palette.primary['500'],
   },
+  headlineMobile: {
+    marginTop: theme.spacing.unit * 3,
+    // marginBottom: theme.spacing.unit * 3,
+    color: theme.palette.primary['500'],
+  },
   headlineTop: {
     marginTop: 88,
   },
+  headlineTopMobile: {
+    marginTop: theme.spacing.unit * 8,
+  },
   headlineAbove: {
     marginTop: theme.spacing.unit * 12,
+    color: theme.palette.primary['500'],
+  },
+  headlineAboveMobile: {
+    marginTop: theme.spacing.unit * 4,
     color: theme.palette.primary['500'],
   },
   headlineBetween: {
@@ -101,16 +119,46 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 3,
     color: theme.palette.primary['500'],
   },
+  headlineBelowMobile: {
+    // marginBottom: theme.spacing.unit * 3,
+    color: theme.palette.primary['500'],
+  },
+  subheadMobile: {
+    marginTop: -8,
+  },
   heroSection: {
     marginTop: theme.spacing.unit * 12,
     marginBotton: theme.spacing.unit* 16,
   },
+  heroSectionMobile: {
+    marginTop: theme.spacing.unit * 3,
+    marginBotton: theme.spacing.unit* 4,
+  },
   features:{
-    marginTop: theme.spacing.unit * 16,
-    marginBotton: theme.spacing.unit * 16,
+    marginTop: '4rem',
+    marginBotton: '4rem',
+    // position: 'absolute',
+    // bottom: theme.spacing.unit * 16,
+  },
+  featuresMobile:{
+    marginTop: '2rem',
+    marginBotton: '2rem',
+    // position: 'absolute',
+    // bottom: 0,
+  },
+  cardContentMobile: {
+    marginBottom: -16,
+  },
+  cardActionsMobile: {
+    marginTop: -16,
+    // marginBottom: -16,
   },
   getInTouch: {
     marginTop: theme.spacing.unit * 12,
+    marginBottom: theme.spacing.unit * 6,
+  },
+  getInTouchMobile: {
+    marginTop: theme.spacing.unit * 2,
     marginBottom: theme.spacing.unit * 6,
   },
   submit: {
@@ -118,6 +166,12 @@ const styles = theme => ({
   },
   card: {
     minHeight: '160px',
+    position: 'relative',
+    boxShadow: `0 0 10px 5px ${theme.palette.primary["A200"]}`,
+    borderTop : `6px solid ${theme.palette.primary["500"]}`,
+  },
+  cardMobile: {
+    minHeight: '128px',
     position: 'relative',
     boxShadow: `0 0 10px 5px ${theme.palette.primary["A200"]}`,
     borderTop : `6px solid ${theme.palette.primary["500"]}`,
@@ -141,6 +195,10 @@ const styles = theme => ({
     height: '100vh',
     marginBottom: -79,
   },
+  section3Mobile: {
+    height: '100vh',
+    marginBottom: -141,
+  },
   // fabWrapper: {
   //   display: 'flex',
   //   justifyContent: 'center',
@@ -153,9 +211,21 @@ const styles = theme => ({
     bottom: theme.spacing.unit * 3,
     background: theme.palette.common.white,
   },
+  fabMobile: {
+    left: '50%',
+    marginLeft: -18,
+    position: 'fixed',
+    bottom: theme.spacing.unit * 2,
+    background: theme.palette.common.white,
+  },
   icon: {
     fontSize: 36,
     color: theme.palette.primary['500'],
+  },
+  buttonMobile: {
+    marginTop: -8,
+    marginBottom: -8,
+    marginLeft: -4,
   },
 });
 
@@ -245,216 +315,414 @@ class Index extends React.Component {
 
     return (
       <div className={classes.root}>
-        <div id="section1" className={classes.section1}>
-          <Grid container spacing={0}>
-            <Helmet defaultTitle={`Openly`} titleTemplate={`%s | Openly`}>
-              <meta name="og:type" content="website"/>
-              <meta name="og:site_name" content="weopenly.com"/>
-              <link
-                rel="canonical"
-                href={`https://weopenly.com${this.props.location.pathname}`}/>
-              <meta
-                property="og:url"
-                content={`https://weopenly.com${this.props.location.pathname}`}/>
-              <html lang="en"/>
-            </Helmet>
+        {!isMobile
+        ? <Fragment>
+          <div id="section1" className={classes.section1}>
+            <Grid container spacing={0}>
+              <Helmet defaultTitle={`Openly`} titleTemplate={`%s | Openly`}>
+                <meta name="og:type" content="website"/>
+                <meta name="og:site_name" content="weopenly.com"/>
+                <link
+                  rel="canonical"
+                  href={`https://weopenly.com${this.props.location.pathname}`}/>
+                <meta
+                  property="og:url"
+                  content={`https://weopenly.com${this.props.location.pathname}`}/>
+                <html lang="en"/>
+              </Helmet>
 
-            <Grid item xs={1} md={3}></Grid>
-            <Grid item xs={10} md={6} className={classes.heroSection}>
-              <Typography
-                variant="display3"
-                align="center"
-                component="h1"
-                className={[classes.headline, classes.headlineTop]}
-                gutterBottom
-              >
-                Governance made delightful.
-              </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                component="p"
-                className={classes.subhead}
-              >
-                We believe that finding and getting government services should be simple and delightful.
-              </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                component="p"
-                className={classes.subhead}
-              >
-                We're building tools to make local government interactions seamless for all.
-              </Typography>
-            </Grid>
-            <Grid item xs={1} md={3}></Grid>
-
-            <Grid item xs={12} >
-              <Grid container spacing={0} className={classes.features}>
-
-              <Grid item md={2}/>
-              <Grid item xs={12} md={3}>
-                <Link to="https://localgov.fyi" className={classes.link}>
-                  <Card className={classes.card}>
-                    <CardContent>
-                      <Typography gutterBottom variant="display1" component="h1">
-                        Localgov.fyi
-                      </Typography>
-                      <Typography variant="body1" component="p">
-                        Find any local government service instantly.
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <IconButton component={Link} to="https://localgov.fyi" color="primary" className={classes.button} aria-label="Go to localgov.fyi">
-                        <ExitToAppIcon />
-                      </IconButton>
-                    </CardActions>
-                  </Card>
-                </Link>
+              <Grid item xs={1} md={3}></Grid>
+              <Grid item xs={10} md={6} className={classes.heroSection}>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={[classes.headline, classes.headlineTop]}
+                  gutterBottom
+                >
+                  Governance made delightful.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={classes.subhead}
+                >
+                  We believe that finding and getting government services should be simple.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={classes.subhead}
+                >
+                  We're building tools to make local government interactions seamless for all.
+                </Typography>
               </Grid>
-              <Grid item xs={12} md={2}/>
-                <Grid item xs={12} md={3}>
-                <Link to="/spotlight" className={classes.link}>
-                  <Card className={classes.card}>
-                    <CardContent>
-                      <Typography gutterBottom variant="display1" component="h1">
-                        Spotlight
-                      </Typography>
-                      <Typography variant="body1" component="p">
-                        Powerful localized search for gov websites.
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <IconButton component={Link} to="/spotlight" color="primary" className={classes.button} aria-label="Go to openly spotlight search">
-                        <ExitToAppIcon />
-                      </IconButton>
-                    </CardActions>
-                  </Card>
-                </Link>
+              <Grid item xs={1} md={3}></Grid>
+
+              <Grid item xs={12} >
+                <Grid container spacing={0} className={classes.features}>
+
+                  <Grid item md={2}/>
+                  <Grid item xs={12} md={3}>
+                    <Link to="https://localgov.fyi" className={classes.link}>
+                      <Card className={classes.card}>
+                        <CardContent>
+                          <Typography gutterBottom variant="display1" component="h1">
+                            Localgov.fyi
+                          </Typography>
+                          <Typography variant="body1" component="p">
+                            Find any local government service instantly.
+                          </Typography>
+                        </CardContent>
+                        <CardActions>
+                          <IconButton component={Link} to="https://localgov.fyi" color="primary" className={classes.button} aria-label="Go to localgov.fyi">
+                            <ExitToAppIcon />
+                          </IconButton>
+                        </CardActions>
+                      </Card>
+                    </Link>
+                  </Grid>
+                  <Grid item xs={12} md={2}/>
+                  <Grid item xs={12} md={3}>
+                  <Link to="/spotlight" className={classes.link}>
+                    <Card className={classes.card}>
+                      <CardContent>
+                        <Typography gutterBottom variant="display1" component="h1">
+                          Spotlight
+                        </Typography>
+                        <Typography variant="body1" component="p">
+                          Powerful localized search for gov websites.
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <IconButton component={Link} to="/spotlight" color="primary" className={classes.button} aria-label="Go to openly spotlight search">
+                          <ExitToAppIcon />
+                        </IconButton>
+                      </CardActions>
+                    </Card>
+                  </Link>
+                  </Grid>
+                  <Grid item xs={12} md={2} />
                 </Grid>
-                <Grid item xs={12} md={2} />
+              </Grid>
+              <Grid item xs={12} className={classes.fabWrapper}>
               </Grid>
             </Grid>
-            <Grid item xs={12} className={classes.fabWrapper}>
+          </div>
+          <div id="section2" className={classes.section2}>
+            <Grid container>
+              <Grid item xs={1} />
+              <Grid item xs={10} className={classes.heroSection}>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={[classes.headlineAbove, classes.white]}
+                >
+                  We are on a mission
+                </Typography>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={[classes.headlineBetween, classes.white]}
+                >
+                  to make every government
+                </Typography>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={[classes.headlineBelow, classes.white]}
+                  gutterBottom
+                >
+                  service accessible online.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={[classes.subhead, classes.white]}
+                >
+                  We believe that unhindered access to government services
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={[classes.subhead, classes.white]}
+                >
+                  is essential to move our society forward.
+                </Typography>
+              </Grid>
+              <Grid item xs={1} />
             </Grid>
-          </Grid>
-        </div>
-        <div id="section2" className={classes.section2}>
-          <Grid container>
-            <Grid item xs={1} />
-            <Grid item xs={10} className={classes.heroSection}>
-              <Typography
-                variant="display3"
-                align="center"
-                component="h1"
-                className={[classes.headlineAbove, classes.white]}
-              >
-                We are on a mission
-              </Typography>
-              <Typography
-                variant="display3"
-                align="center"
-                component="h1"
-                className={[classes.headlineBetween, classes.white]}
-              >
-                to make every government
-              </Typography>
-              <Typography
-                variant="display3"
-                align="center"
-                component="h1"
-                className={[classes.headlineBelow, classes.white]}
-                gutterBottom
-              >
-                service accessible online.
-              </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                component="p"
-                className={[classes.subhead, classes.white]}
-              >
-                We believe that unhindered access to government services is essential
-              </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                component="p"
-                className={[classes.subhead, classes.white]}
-              >
-                to move our society forward. We are starting by making it easier than ever
-              </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                component="p"
-                className={[classes.subhead, classes.white]}
-              >
-                to find any local government service with our search and integrate it into any government website.
-              </Typography>
+          </div>
+          <div id="section3" className={classes.section3}>
+            <Grid container>
+              <Grid item xs={1} />
+              <Grid item xs={10} className={classes.heroSection}>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={classes.headlineAbove}
+                >
+                  Making it easier to find government
+                </Typography>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={classes.headlineBelow}
+                >
+                  services is just a start.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={classes.subhead}
+                >
+                  We want to enable delightful governance delivered at your convenience.
+                </Typography>
+              </Grid>
+              <Grid item xs={1} />
+              <Grid item xs={1} md={2}></Grid>
+              <Grid item xs={10} md={8} align="center" className={classes.getInTouch}>
+                <ContactForm />
+              </Grid>
+              <Grid item xs={1} md={2}></Grid>
             </Grid>
-            <Grid item xs={1} />
-          </Grid>
-        </div>
-        <div id="section3" className={classes.section3}>
-          <Grid container>
-            <Grid item xs={1} />
-            <Grid item xs={10} className={classes.heroSection}>
-              <Typography
-                variant="display3"
-                align="center"
-                component="h1"
-                className={classes.headlineAbove}
-              >
-                Making it easier to find government services
-              </Typography>
-              <Typography
-                variant="display3"
-                align="center"
-                component="h1"
-                className={classes.headlineBetween}
-              >
-                is just a start. We want to enable delightful
-              </Typography>
-              <Typography
-                variant="display3"
-                align="center"
-                component="h1"
-                className={classes.headlineBelow}
-                gutterBottom
-              >
-                governance delivered at your convenience.
-              </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                component="p"
-                className={classes.subhead}
-              >
-                We are a small team (& a large support network) building Openly
-              </Typography>
-              <Typography
-                variant="body1"
-                align="center"
-                component="p"
-                className={classes.subhead}
-              >
-                and finding our way through the labyrinth of governance.
-              </Typography>
+          </div>
+          <Button variant="fab" onClick={this.handleClick} className={classes.fab}>
+            {this.state.section > 1
+              ? <ExpandMore className={classes.icon}/>
+              : <ExpandLess className={classes.icon}/>}
+          </Button>
+        </Fragment>
+        : <Fragment>
+          <div id="section1" className={classes.section1}>
+            <Grid container spacing={0}>
+              <Helmet defaultTitle={`Openly`} titleTemplate={`%s | Openly`}>
+                <meta name="og:type" content="website"/>
+                <meta name="og:site_name" content="weopenly.com"/>
+                <link
+                  rel="canonical"
+                  href={`https://weopenly.com${this.props.location.pathname}`}/>
+                <meta
+                  property="og:url"
+                  content={`https://weopenly.com${this.props.location.pathname}`}/>
+                <html lang="en"/>
+              </Helmet>
+
+              <Grid item xs={1} md={3}></Grid>
+              <Grid item xs={10} md={6} className={classes.heroSectionMobile}>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={[classes.headlineMobile, classes.headlineTopMobile]}
+                  gutterBottom
+                >
+                  Governance made delightful.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={classes.subhead}
+                >
+                  We believe that finding and getting
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={classes.subhead}
+                >
+                  government services should be
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={classes.subhead}
+                >
+                  simple. We're building tools
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={classes.subhead}
+                >
+                  to make local government
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={classes.subhead}
+                >
+                  interactions seamless for all.
+                </Typography>
+              </Grid>
+              <Grid item xs={1} md={3}></Grid>
+
+              <Grid item xs={12} >
+                <Grid container spacing={0} className={classes.featuresMobile}>
+
+                  <Grid item md={2}/>
+                  <Grid item xs={12} md={3}>
+                    <Link to="https://localgov.fyi" className={classes.link}>
+                      <Card className={classes.cardMobile}>
+                        <CardContent className={classes.cardContentMobile}>
+                          <Typography gutterBottom variant="display1" component="h1">
+                            Localgov.fyi
+                          </Typography>
+                          <Typography variant="body1" component="p">
+                            Find any local government service instantly.
+                          </Typography>
+                        </CardContent>
+                        <CardActions className={classes.cardActionsMobile}>
+                          <IconButton component={Link} to="https://localgov.fyi" color="primary" className={classes.buttonMobile} aria-label="Go to localgov.fyi">
+                            <ExitToAppIcon />
+                          </IconButton>
+                        </CardActions>
+                      </Card>
+                    </Link>
+                  </Grid>
+                  <Grid item xs={12} md={2}/>
+                  <Grid item xs={12} md={3}>
+                  <Link to="/spotlight" className={classes.link}>
+                    <Card className={classes.cardMobile}>
+                      <CardContent className={classes.cardContentMobile}>
+                        <Typography gutterBottom variant="display1" component="h1">
+                          Spotlight
+                        </Typography>
+                        <Typography variant="body1" component="p">
+                          Powerful localized search for gov websites.
+                        </Typography>
+                      </CardContent>
+                      <CardActions className={classes.cardActionsMobile}>
+                        <IconButton component={Link} to="/spotlight" color="primary" className={classes.buttonMobile} aria-label="Go to openly spotlight search">
+                          <ExitToAppIcon />
+                        </IconButton>
+                      </CardActions>
+                    </Card>
+                  </Link>
+                  </Grid>
+                  <Grid item xs={12} md={2} />
+                </Grid>
+              </Grid>
+              <Grid item xs={12} className={classes.fabWrapper}>
+              </Grid>
             </Grid>
-            <Grid item xs={1} />
-            <Grid item xs={1} md={2}></Grid>
-            <Grid item xs={10} md={8} align="center" className={classes.getInTouch}>
-              <ContactForm />
+          </div>
+          <div id="section2" className={classes.section2}>
+            <Grid container>
+              <Grid item xs={1} />
+              <Grid item xs={10} className={classes.heroSectionMobile}>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={[classes.headlineAboveMobile, classes.white]}
+                >
+                  We are on a mission
+                </Typography>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={[classes.headlineBetween, classes.white]}
+                >
+                  to make every government
+                </Typography>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={[classes.headlineBelowMobile, classes.white]}
+                  gutterBottom
+                >
+                  service accessible online.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={[classes.subhead, classes.white, classes.subheadMobile]}
+                >
+                  We believe that unhindered access to government services is essential
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={[classes.subhead, classes.white]}
+                >
+                  to move our society forward. We are starting by making it easier than ever
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={[classes.subhead, classes.white]}
+                >
+                  to find any local government service with our search and integrate it into any government website.
+                </Typography>
+              </Grid>
+              <Grid item xs={1} />
             </Grid>
-            <Grid item xs={1} md={2}></Grid>
-          </Grid>
-        </div>
-        <Button variant="fab" onClick={this.handleClick} className={classes.fab}>
-          {this.state.section > 1
-            ? <ExpandMore className={classes.icon}/>
-            : <ExpandLess className={classes.icon}/>}
-        </Button>
+          </div>
+          <div id="section3" className={classes.section3Mobile}>
+            <Grid container>
+              <Grid item xs={1} />
+              <Grid item xs={10} className={classes.heroSectionMobile}>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={classes.headlineAboveMobile}
+                >
+                  Making it easier to find government services
+                </Typography>
+                <Typography
+                  variant="display3"
+                  align="center"
+                  component="h1"
+                  className={classes.headlineBelow}
+                >
+                  is just a start.
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  component="p"
+                  className={[classes.subhead, classes.subheadMobile]}
+                  gutterBottom
+                >
+                  We want to enable delightful governance delivered at your convenience.
+                </Typography>
+              </Grid>
+              <Grid item xs={1} />
+              <Grid item xs={1} md={2}></Grid>
+              <Grid item xs={10} md={8} align="center" className={classes.getInTouchMobile}>
+                <ContactForm />
+              </Grid>
+              <Grid item xs={1} md={2}></Grid>
+            </Grid>
+          </div>
+          <Button variant="fab" mini onClick={this.handleClick} className={classes.fabMobile}>
+            {this.state.section > 1
+              ? <ExpandMore className={classes.icon}/>
+              : <ExpandLess className={classes.icon}/>}
+          </Button>
+        </Fragment>}
       </div>
     );
   }
