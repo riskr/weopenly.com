@@ -1,18 +1,17 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import Img from "gatsby-image";;
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Helmet from "react-helmet";
-import Grid from '@material-ui/core/Grid';
-
-import Typography from '@material-ui/core/Typography';
-import {withStyles} from '@material-ui/core/styles';
-import {isMobileOnly} from 'react-device-detect';
+import { isMobileOnly } from 'react-device-detect';
 import Animate from 'react-simple-animate';
 
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 import withRoot from '../withRoot';
-
 
 const styles = theme => ({
     headerLogo: {
@@ -46,11 +45,11 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit * 4
     },
     trendsSectionleftHeader: {
-        color: '#fff'
+        color: theme.palette.common.white,
     },
     trendsSection: {
         paddingtop: theme.spacing.unit * 2,
-        background: theme.palette.primary['400'],
+        background: theme.palette.primary['500'],
         boxShadow: `0 0 1px 1px ${theme.palette.primary["50"]}`
     },
     heroSection: {
@@ -62,9 +61,11 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit * 4
     },
     getInTouchSection: {
-        paddingTop: theme.spacing.unit * 8,
-        paddingBottom: theme.spacing.unit * 8,
-        background: theme.palette.primary['400']
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        background: theme.palette.primary['500']
     },
     headerTitle: {
         color: theme.palette.primary['500']
@@ -75,27 +76,99 @@ const styles = theme => ({
     heroLogo: {
         fontSize: theme.spacing.unit *8,
         color: theme.palette.primary["700"]
-    }
+    },
+    form: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+    formTitle: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    bootstrapInput: {
+        width: '500px',
+        // color: theme.palette.primary['200'],
+        backgroundColor: theme.palette.primary['50'],
+        border: '1px solid #ced4da',
+        borderRadius: 3,
+        padding: '10px 12px 12px 12px',
+        marginBottom: theme.spacing.unit,
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+    },
+    bootstrapTextArea: {
+        width: '500px',
+        // color: theme.palette.primary['200'],
+        backgroundColor: theme.palette.primary['50'],
+        border: '1px solid #ced4da',
+        borderRadius: 3,
+        padding: '10px 12px 12px 12px',
+        marginBottom: theme.spacing.unit / 2,
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+    },
+    submitStatus: {
+        color: theme.palette.common.white,
+    },
 });
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+};
+
 class Index extends React.Component {
-    state = {
-        open: false
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "",
+            location: "",
+            email: "",
+            comment: "",
+            success: false,
+            failure: false,
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
 
-    handleClose = () => {
-        this.setState({open: false});
-    };
+    handleSubmit(e) {
+        let currentLoc = '';
+        if (window.location && window.location.pathname){
+            currentLoc = window.location.pathname
+        }
 
-    handleClick = () => {
-        this.setState({open: true});
-    };
+        fetch("/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: encode({
+                "form-name": "getInTouch",
+                "path": currentLoc,
+                "email": this.state.email,
+            })
+        }).then(() => this.setState({
+            success: true
+        })).catch(error => this.setState({failure: true}));
+
+        e.preventDefault();
+    }
+
+    handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
 
     render() {
-        const {classes, data} = this.props;
-
-        const {open} = this.state;
-
+        const { classes, data } = this.props;
+        const {
+            name,
+            location,
+            email,
+            comment,
+        } = this.state;
         const heroSectionLeft = classNames({
             'heroSectionLeft': !isMobileOnly,
             'heroSectionLeftMob': isMobileOnly
@@ -141,7 +214,8 @@ class Index extends React.Component {
                                         align="left"
                                         variant="display1"
                                         component="h1"
-                                        gutterBottom>
+                                        gutterBottom
+                                    >
                                         The fastest way to access gov services.
                                     </Typography>
                                     <Typography align="left" variant="caption" component="span">
@@ -150,11 +224,12 @@ class Index extends React.Component {
                                 </Grid>
                                 <Grid item md={1}/>
                                 <Grid item xs={10} sm={3} md={3} className={classes[heroSectionRight]}>
-                                        <Img
-                                            title="Spotlight"
-                                            alt="Spotlight search 1"
-                                            className={classes.image}
-                                            sizes={this.props.data.gal1.sizes}/>
+                                    <Img
+                                        title="Spotlight"
+                                        alt="Spotlight search 1"
+                                        className={classes.image}
+                                        sizes={this.props.data.gal1.sizes}
+                                    />
                                 </Grid>
                             </Fragment>
                         )
@@ -169,10 +244,10 @@ class Index extends React.Component {
                                 </Grid>
                                 <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
                                     <Typography align="center" variant="display1" component="h1" gutterbottom>
-The fastest way to access gov services.
+                                        The fastest way to access gov services.
                                     </Typography>
                                     <Typography align="center" variant="subheading" component="span">
-We think that accessing finding and getting gov services should be delightful.Spotlight is our first tool to give access to most important gov services online.
+                                        We think that accessing finding and getting gov services should be delightful.Spotlight is our first tool to give access to most important gov services online.
                                     </Typography>
                                 </Grid>
                             </Fragment>
@@ -191,7 +266,8 @@ We think that accessing finding and getting gov services should be delightful.Sp
                                         className={classes.trendsSectionleftHeader}
                                         variant="display1"
                                         component="h1"
-                                        gutterBottom>
+                                        gutterBottom
+                                    >
                                       Integrates in a flash
                                     </Typography>
                                     <Typography
@@ -207,17 +283,19 @@ We think that accessing finding and getting gov services should be delightful.Sp
                                     <Animate
                                         startAnimation
                                         startStyle={{
-                                        "transform": "translateY(500px)"
-                                    }}
+                                            "transform": "translateY(500px)"
+                                        }}
                                         endStyle={{
-                                        "transform": "translateY(0)"
-                                    }}
+                                            "transform": "translateY(0)"
+                                        }}
                                         durationSeconds="0.5"
-                                        easeType="linear">
+                                        easeType="linear"
+                                    >
                                         <Img
                                             title="Trends"
                                             alt="Spotlight Trends"
-                                            sizes={this.props.data.trends.sizes}/>
+                                            sizes={this.props.data.trends.sizes}
+                                        />
                                     </Animate>
 
                                 </Grid>
@@ -229,13 +307,14 @@ We think that accessing finding and getting gov services should be delightful.Sp
                                     <Animate
                                         startAnimation
                                         startStyle={{
-                                        "transform": "translateY(500px)"
-                                    }}
+                                            "transform": "translateY(500px)"
+                                        }}
                                         endStyle={{
-                                        "transform": "translateY(0)"
-                                    }}
+                                            "transform": "translateY(0)"
+                                        }}
                                         durationSeconds="0.5"
-                                        easeType="linear">
+                                        easeType="linear"
+                                    >
                                         <Img title="Trends" alt="Spotlight Trends" sizes={this.props.data.gal1.sizes}/>
                                     </Animate>
                                 </Grid>
@@ -301,13 +380,14 @@ We think that accessing finding and getting gov services should be delightful.Sp
                                     <Animate
                                         startAnimation
                                         startStyle={{
-                                        "transform": "translateY(500px)"
-                                    }}
+                                            "transform": "translateY(500px)"
+                                        }}
                                         endStyle={{
-                                        "transform": "translateY(0)"
-                                    }}
+                                            "transform": "translateY(0)"
+                                        }}
                                         durationSeconds="0.5"
-                                        easeType="linear">
+                                        easeType="linear"
+                                    >
                                         <Img title="Trends" alt="Spotlight Trends" sizes={this.props.data.gal1.sizes}/>
                                     </Animate>
                                 </Grid>
@@ -328,37 +408,82 @@ We think that accessing finding and getting gov services should be delightful.Sp
 
                 {/* get in touch section start */}
                 <Grid container className={classes.getInTouchSection} spacing={0}>
-
-                    <Grid item md={1}/>
-                    <Grid item xs={10} sm={10} md={4} className={classes.trendsSectionleftHeader}>
-                        about
-                        <br/>
-                        privacy
-                        <br/>
-                        terms of service
-                        <br/>
+                    <Grid item>
+                        <div className={classes.formTitle}>
+                            <Typography
+                                className={classes.trendsSectionleftHeader}
+                                variant="display1"
+                                component="h1"
+                                gutterBottom
+                            >
+                              Get in touch to try Spotlight
+                            </Typography>
+                        </div>
+                        <form
+                            name="getInTouch"
+                            onSubmit={this.handleSubmit}
+                            data-netlify="true"
+                            data-netlify-honeypot="bot-field"
+                            className={classes.form}
+                        >
+                            <div>
+                                <input
+                                    name="name"
+                                    type="text"
+                                    placeholder="Name"
+                                    value={name}
+                                    onChange={this.handleChange}
+                                    className={classes.bootstrapInput}
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    name="location"
+                                    type="text"
+                                    placeholder="City or Jurisdiction"
+                                    value={location}
+                                    onChange={this.handleChange}
+                                    className={classes.bootstrapInput}
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    name="email"
+                                    type="email"
+                                    placeholder="your@email.com"
+                                    value={email}
+                                    onChange={this.handleChange}
+                                    className={classes.bootstrapInput}
+                                />
+                            </div>
+                            <div>
+                                <textarea
+                                    name="comment"
+                                    type="text"
+                                    rows={4}
+                                    placeholder="Questions or comments"
+                                    value={comment}
+                                    onChange={this.handleChange}
+                                    className={classes.bootstrapTextArea}
+                                />
+                            </div>
+                            <Button variant="contained" type="submit">
+                                Submit
+                            </Button>
+                        </form>
+                        {this.state.success
+                            ? <Typography variant="caption" component="p" className={classes.submitStatus}>
+                                Thank you! We will be in touch shortly.
+                            </Typography>
+                            : null
+                        }
+                        {this.state.failure
+                            ? <Typography variant="caption" component="p" className={classes.submitStatus}>
+                                Oops, something went wrong :(
+                            </Typography>
+                            : null
+                        }
                     </Grid>
-                    <Grid item md={1}/>
-                    <Grid item xs={10} sm={10} md={5}>
-                        <Typography
-                            align="right"
-                            variant="caption"
-                            component="h1"
-                            className={classes.trendsSectionleftHeader}
-                            gutterBottom>
-                            leave email here
-                        </Typography>
-                        <Typography
-                            align="right"
-                            variant="title"
-                            component="h1"
-                            className={classes.trendsSectionleftHeader}
-                            gutterBottom>
-                            Get in touch
-                        </Typography>
-                    </Grid>
-
-                    <Grid item item xs={1} sm={1} md={0}/>
                 </Grid>
                 {/* dashboard section end */}
             </Grid>
