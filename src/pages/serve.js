@@ -53,14 +53,23 @@ const styles = theme => ({
         boxShadow: `0 0 1px 1px ${theme.palette.primary["50"]}`
     },
     heroSection: {
+        height: '100vh',
         background: '#fff',
-        paddingBottom: theme.spacing.unit * 8
+        marginBottom: -88,
+        paddingBottom: theme.spacing.unit * 8,
+    },
+    heroSectionTop: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingBottom: theme.spacing.unit * 24,
     },
     heroSectionRight: {
         marginTop: theme.spacing.unit * 8,
         marginBottom: theme.spacing.unit * 4
     },
-    getInTouchSection: {
+    getAccessSection: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -71,7 +80,7 @@ const styles = theme => ({
         color: theme.palette.primary['500']
     },
     image: {
-        boxShadow: `0 0 15px 10px ${theme.palette.primary["A400"]}`
+        // boxShadow: `0 0 15px 10px ${theme.palette.primary["A400"]}`
     },
     heroLogo: {
         fontSize: theme.spacing.unit *8,
@@ -144,7 +153,7 @@ class Index extends React.Component {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: encode({
-                "form-name": "getInTouch",
+                "form-name": "getAccess",
                 "path": currentLoc,
                 "email": this.state.email,
             })
@@ -205,49 +214,44 @@ class Index extends React.Component {
 
                 {/* hero section start */}
                 <Grid container className={classes.heroSection} spacing={0}>
-                    <Grid xs={1} item sm={1} md={2}/> {!isMobileOnly
+                    <Grid xs={1} item sm={1} md={2}/>
+                        {!isMobileOnly
                         ? (
                             <Fragment>
-                                <Grid item xs={10} sm={10} md={4} className={classes[heroSectionLeft]}>
+                                <Grid item xs={12} md={8} className={classes.heroSectionTop}>
                                     <Typography
+                                        variant="display3"
                                         className={classes.headerTitle}
-                                        align="left"
-                                        variant="display1"
-                                        component="h1"
-                                        gutterBottom
                                     >
-                                        The fastest way to access gov services.
+                                        The easiest way
                                     </Typography>
-                                    <Typography align="left" variant="caption" component="span">
-                                      We think that accessing finding and getting gov services should be delightful. Spotlight is our first tool to give access to most important gov services online. 
+                                    <Typography
+                                        variant="display3"
+                                        gutterBottom
+                                        className={classes.headerTitle}
+                                    >
+                                        to file your government paperwork.
                                     </Typography>
-                                </Grid>
-                                <Grid item md={1}/>
-                                <Grid item xs={10} sm={3} md={3} className={classes[heroSectionRight]}>
-                                    <Img
-                                        title="Spotlight"
-                                        alt="Spotlight search 1"
-                                        className={classes.image}
-                                        sizes={this.props.data.gal1.sizes}
-                                    />
+                                    <Typography align="left" variant="body1" component="span">
+                                        We help small businesses to keep track of all their compliance requirements
+                                    </Typography>
+                                    <Typography align="left" variant="body1" component="span">
+                                        and file them at a single place seamlessly online.
+                                    </Typography>
                                 </Grid>
                             </Fragment>
                         )
                         : (
                             <Fragment>
                                 <Grid item xs={10} sm={6} className={classes[heroSectionLeft]}>
-                                    <Img
-                                        title="Spotlight"
-                                        alt="Spotlight search"
-                                        sizes={this.props.data.gal1.sizes}
-                                    />
+
                                 </Grid>
                                 <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
                                     <Typography align="center" variant="display1" component="h1" gutterbottom>
-                                        The fastest way to access gov services.
+                                        The easiest way to file your government paperwork.
                                     </Typography>
                                     <Typography align="center" variant="subheading" component="span">
-                                        We think that accessing finding and getting gov services should be delightful.Spotlight is our first tool to give access to most important gov services online.
+                                        We help small businesses to keep track of all their compliance requirements and file them at a single place seamlessly online.
                                     </Typography>
                                 </Grid>
                             </Fragment>
@@ -268,14 +272,15 @@ class Index extends React.Component {
                                         component="h1"
                                         gutterBottom
                                     >
-                                      Integrates in a flash
+                                        Compliance made simple.
                                     </Typography>
                                     <Typography
                                         align="left"
                                         className={classes.trendsSectionleftHeader}
                                         variant="caption"
-                                        component="span">
-                                        Add the Spotlight search to your gov website with just a line of code. That’s it.
+                                        component="span"
+                                    >
+                                        Get snapshot of all compliance requirements for your business and file them online.
                                     </Typography>
                                 </Grid>
                                 <Grid item md={1}/>
@@ -292,9 +297,10 @@ class Index extends React.Component {
                                         easeType="linear"
                                     >
                                         <Img
-                                            title="Trends"
-                                            alt="Spotlight Trends"
-                                            sizes={this.props.data.trends.sizes}
+                                            title="Compliance"
+                                            alt="compliance screenshot"
+                                            className={classes.image}
+                                            sizes={this.props.data.serve1.sizes}
                                         />
                                     </Animate>
 
@@ -315,15 +321,20 @@ class Index extends React.Component {
                                         durationSeconds="0.5"
                                         easeType="linear"
                                     >
-                                        <Img title="Trends" alt="Spotlight Trends" sizes={this.props.data.gal1.sizes}/>
+                                        <Img
+                                            title="Compliance"
+                                            alt="compliance screenshot"
+                                            className={classes.image}
+                                            sizes={this.props.data.serve1.sizes}
+                                        />
                                     </Animate>
                                 </Grid>
                                 <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
                                     <Typography align="center" variant="display1" component="h1" gutterbottom>
-                                      Integrates in a flash
+                                        Compliance made simple.
                                     </Typography>
                                     <Typography align="center" variant="subheading" component="span">
-                                       Add the Spotlight search to your gov website with just a line of code. That’s it.
+                                        Get snapshot of all compliance requirements for your business and file them online.
                                     </Typography>
                                 </Grid>
                             </Fragment>
@@ -341,17 +352,20 @@ class Index extends React.Component {
                                     <Animate
                                         startAnimation
                                         startStyle={{
-                                        "transform": "translateY(500px)"
-                                    }}
+                                            "transform": "translateY(500px)"
+                                        }}
                                         endStyle={{
-                                        "transform": "translateY(0)"
-                                    }}
+                                            "transform": "translateY(0)"
+                                        }}
                                         durationSeconds="0.5"
-                                        easeType="linear">
+                                        easeType="linear"
+                                    >
                                         <Img
-                                            title="Services"
-                                            alt="Spotlight Services"
-                                            sizes={this.props.data.services.sizes}/>
+                                            title="Manage"
+                                            alt="manage screenshot"
+                                            className={classes.image}
+                                            sizes={this.props.data.serve2.sizes}
+                                        />
                                     </Animate>
 
                                 </Grid>
@@ -361,14 +375,16 @@ class Index extends React.Component {
                                         align="right"  
                                         variant="display1"
                                         component="h1"
-                                        gutterBottom>
-                                        A single record for all services
+                                        gutterBottom
+                                    >
+                                        Manage all records securely.
                                     </Typography>
                                     <Typography
                                         align="right"
                                         variant="caption"
-                                        component="span">
-                                       Understanding what services matter most to people is the starting point to make your gov service centered. Our dashboard is the starting point to get a glimpse of it. 
+                                        component="span"
+                                    >
+                                        Keep a record of all your business compliance documents secured in one place.
                                     </Typography>
                                 </Grid>
                             </Fragment>
@@ -388,15 +404,20 @@ class Index extends React.Component {
                                         durationSeconds="0.5"
                                         easeType="linear"
                                     >
-                                        <Img title="Trends" alt="Spotlight Trends" sizes={this.props.data.gal1.sizes}/>
+                                        <Img
+                                            title="Manage"
+                                            alt="manage screenshot"
+                                            className={classes.image}
+                                            sizes={this.props.data.serve2.sizes}
+                                        />
                                     </Animate>
                                 </Grid>
                                 <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
                                     <Typography align="center" variant="display1" component="h1" gutterbottom>
-                                        A single record for all services
+                                        Manage all records securely.
                                     </Typography>
                                     <Typography align="center" variant="subheading" component="span">
-                                       Understanding what services matter most to people is the starting point to make your gov service centered. Our dashboard is the starting point to get a glimpse of it. 
+                                        Keep a record of all your business compliance documents secured in one place.
                                     </Typography>
                                 </Grid>
                             </Fragment>
@@ -407,7 +428,7 @@ class Index extends React.Component {
                 {/* dashboard section end */}
 
                 {/* get in touch section start */}
-                <Grid container className={classes.getInTouchSection} spacing={0}>
+                <Grid container className={classes.getAccessSection} spacing={0}>
                     <Grid item>
                         <div className={classes.formTitle}>
                             <Typography
@@ -416,11 +437,11 @@ class Index extends React.Component {
                                 component="h1"
                                 gutterBottom
                             >
-                              Get in touch to try Spotlight
+                              Get Early Access
                             </Typography>
                         </div>
                         <form
-                            name="getInTouch"
+                            name="getAccess"
                             onSubmit={this.handleSubmit}
                             data-netlify="true"
                             data-netlify-honeypot="bot-field"
@@ -430,7 +451,7 @@ class Index extends React.Component {
                                 <input
                                     name="name"
                                     type="text"
-                                    placeholder="Name"
+                                    placeholder="Name of your business"
                                     value={name}
                                     onChange={this.handleChange}
                                     className={classes.bootstrapInput}
@@ -440,7 +461,7 @@ class Index extends React.Component {
                                 <input
                                     name="location"
                                     type="text"
-                                    placeholder="City or Jurisdiction"
+                                    placeholder="Location"
                                     value={location}
                                     onChange={this.handleChange}
                                     className={classes.bootstrapInput}
@@ -454,17 +475,6 @@ class Index extends React.Component {
                                     value={email}
                                     onChange={this.handleChange}
                                     className={classes.bootstrapInput}
-                                />
-                            </div>
-                            <div>
-                                <textarea
-                                    name="comment"
-                                    type="text"
-                                    rows={4}
-                                    placeholder="Questions or comments"
-                                    value={comment}
-                                    onChange={this.handleChange}
-                                    className={classes.bootstrapTextArea}
                                 />
                             </div>
                             <Button variant="contained" type="submit">
@@ -496,34 +506,18 @@ Index.propTypes = {
 };
 
 export const query = graphql`
-  query spotlightImageQuery {
-    gal1: imageSharp(id: { regex: "/gal1/" }) {
-    sizes {
-        ...GatsbyImageSharpSizes_tracedSVG
-      }
+    query serveImageQuery {
+        serve1: imageSharp(id: { regex: "/serve1/" }) {
+            sizes {
+                ...GatsbyImageSharpSizes_tracedSVG
+            }
+        }
+        serve2: imageSharp(id: { regex: "/serve2/"}) {
+            sizes {
+                ...GatsbyImageSharpSizes_tracedSVG
+            }
+        }
     }
-    services: imageSharp(id: { regex: "/services/"}) {
-      sizes {
-            ...GatsbyImageSharpSizes_tracedSVG
-      }
-    }
-    gal2: imageSharp(id: { regex: "/gal2/"}) {
-      sizes {
-            ...GatsbyImageSharpSizes_tracedSVG
-      }
-    }
-    gal4: imageSharp(id: { regex: "/gal4/"}) {
-       sizes {
-            ...GatsbyImageSharpSizes_tracedSVG
-      }
-    }
-    trends: imageSharp(id: { regex: "/trends/"}) {
-      sizes {
-            ...GatsbyImageSharpSizes_tracedSVG
-      }
-    }
-   
-  }
 `;
 
 export default withRoot(withStyles(styles)(Index));

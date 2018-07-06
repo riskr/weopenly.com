@@ -6,7 +6,7 @@ import {
   BrowserView,
   MobileView,
   isBrowser,
-  isMobile
+  isMobileOnly,
 } from "react-device-detect";
 
 import Button from '@material-ui/core/Button';
@@ -128,31 +128,35 @@ const styles = theme => ({
   },
   heroSection: {
     marginTop: theme.spacing.unit * 12,
-    marginBotton: theme.spacing.unit* 16,
+    marginBotton: theme.spacing.unit * 16,
   },
   heroSectionMobile: {
     marginTop: theme.spacing.unit * 3,
-    marginBotton: theme.spacing.unit* 4,
+    marginBotton: theme.spacing.unit * 4,
   },
   features:{
     marginTop: '4rem',
     marginBotton: '4rem',
+    paddingLeft: theme.spacing.unit * 24,
+    paddingRight: theme.spacing.unit * 24,
     // position: 'absolute',
     // bottom: theme.spacing.unit * 16,
   },
   featuresMobile:{
     marginTop: '2rem',
     marginBotton: '2rem',
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
     // position: 'absolute',
     // bottom: 0,
   },
-  cardContentMobile: {
-    marginBottom: -16,
-  },
-  cardActionsMobile: {
-    marginTop: -16,
-    // marginBottom: -16,
-  },
+  // cardContentMobile: {
+  //   marginBottom: -16,
+  // },
+  // cardActionsMobile: {
+  //   marginTop: -16,
+  //   // marginBottom: -16,
+  // },
   getInTouch: {
     marginTop: theme.spacing.unit * 12,
     marginBottom: theme.spacing.unit * 6,
@@ -169,12 +173,32 @@ const styles = theme => ({
     position: 'relative',
     boxShadow: `0 0 10px 5px ${theme.palette.primary["A200"]}`,
     borderTop : `6px solid ${theme.palette.primary["500"]}`,
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+  },
+  cardContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  caption: {
+    marginBottom: theme.spacing.unit,
   },
   cardMobile: {
-    minHeight: '128px',
-    position: 'relative',
-    boxShadow: `0 0 10px 5px ${theme.palette.primary["A200"]}`,
-    borderTop : `6px solid ${theme.palette.primary["500"]}`,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: theme.spacing.unit,
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
+    // minHeight: '128px',
+    // position: 'relative',
+    // boxShadow: `0 0 10px 5px ${theme.palette.primary["A200"]}`,
+    // borderTop: `6px solid ${theme.palette.primary["500"]}`,
   },
   link: {
     textDecoration: 'none',
@@ -315,7 +339,7 @@ class Index extends React.Component {
 
     return (
       <div className={classes.root}>
-        {!isMobile
+        {!isMobileOnly
         ? <Fragment>
           <div id="section1" className={classes.section1}>
             <Grid container spacing={0}>
@@ -364,47 +388,62 @@ class Index extends React.Component {
               <Grid item xs={12} >
                 <Grid container spacing={0} className={classes.features}>
 
-                  <Grid item md={2}/>
-                  <Grid item xs={12} md={3}>
+                  <Grid item md={0}/>
+                  <Grid item xs={12} md={4}>
                     <Link to="https://localgov.fyi" className={classes.link}>
                       <Card className={classes.card}>
-                        <CardContent>
+                        <CardContent className={classes.cardContent}>
+                          <Typography variant="caption" className={classes.caption}>EVERYONE</Typography>
                           <Typography gutterBottom variant="display1" component="h1">
                             Localgov.fyi
                           </Typography>
                           <Typography variant="body1" component="p">
-                            Find any local government service instantly.
+                            Find any local government
+                          </Typography>
+                          <Typography variant="body1" component="p">
+                            service instantly.
                           </Typography>
                         </CardContent>
-                        <CardActions>
-                          <IconButton component={Link} to="https://localgov.fyi" color="primary" className={classes.button} aria-label="Go to localgov.fyi">
-                            <ExitToAppIcon />
-                          </IconButton>
-                        </CardActions>
                       </Card>
                     </Link>
                   </Grid>
-                  <Grid item xs={12} md={2}/>
-                  <Grid item xs={12} md={3}>
-                  <Link to="/spotlight" className={classes.link}>
-                    <Card className={classes.card}>
-                      <CardContent>
-                        <Typography gutterBottom variant="display1" component="h1">
-                          Spotlight
-                        </Typography>
-                        <Typography variant="body1" component="p">
-                          Powerful localized search for gov websites.
-                        </Typography>
-                      </CardContent>
-                      <CardActions>
-                        <IconButton component={Link} to="/spotlight" color="primary" className={classes.button} aria-label="Go to openly spotlight search">
-                          <ExitToAppIcon />
-                        </IconButton>
-                      </CardActions>
-                    </Card>
-                  </Link>
+                  <Grid item xs={12} md={4}>
+                    <Link to="/spotlight" className={classes.link}>
+                      <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                          <Typography variant="caption" className={classes.caption}>GOVERNMENTS</Typography>
+                          <Typography gutterBottom variant="display1" component="h1">
+                            Spotlight
+                          </Typography>
+                          <Typography variant="body1" component="p">
+                            Powerful localized search
+                          </Typography>
+                          <Typography variant="body1" component="p">
+                            for gov websites.
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Link>
                   </Grid>
-                  <Grid item xs={12} md={2} />
+                  <Grid item xs={12} md={4}>
+                    <Link to="/serve" className={classes.link}>
+                      <Card className={classes.card}>
+                        <CardContent className={classes.cardContent}>
+                          <Typography variant="caption" className={classes.caption}>BUSINESSES</Typography>
+                          <Typography gutterBottom variant="display1" component="h1">
+                            Serve
+                          </Typography>
+                          <Typography variant="body1" component="p">
+                            File all government paperwork
+                          </Typography>
+                          <Typography variant="body1" component="p">
+                            in one place.
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </Grid>
+                  <Grid item xs={0} md={0} />
                 </Grid>
               </Grid>
               <Grid item xs={12} className={classes.fabWrapper}>
@@ -579,41 +618,39 @@ class Index extends React.Component {
                   <Grid item xs={12} md={3}>
                     <Link to="https://localgov.fyi" className={classes.link}>
                       <Card className={classes.cardMobile}>
-                        <CardContent className={classes.cardContentMobile}>
-                          <Typography gutterBottom variant="display1" component="h1">
-                            Localgov.fyi
-                          </Typography>
-                          <Typography variant="body1" component="p">
-                            Find any local government service instantly.
-                          </Typography>
-                        </CardContent>
-                        <CardActions className={classes.cardActionsMobile}>
-                          <IconButton component={Link} to="https://localgov.fyi" color="primary" className={classes.buttonMobile} aria-label="Go to localgov.fyi">
-                            <ExitToAppIcon />
-                          </IconButton>
-                        </CardActions>
+                        <Typography variant="display1" component="h1">
+                          Localgov.fyi
+                        </Typography>
+                        <Typography variant="caption" component="p">
+                          Find any local government service instantly.
+                        </Typography>
                       </Card>
                     </Link>
                   </Grid>
                   <Grid item xs={12} md={2}/>
                   <Grid item xs={12} md={3}>
-                  <Link to="/spotlight" className={classes.link}>
-                    <Card className={classes.cardMobile}>
-                      <CardContent className={classes.cardContentMobile}>
-                        <Typography gutterBottom variant="display1" component="h1">
+                    <Link to="/spotlight" className={classes.link}>
+                      <Card className={classes.cardMobile}>
+                        <Typography variant="display1" component="h1">
                           Spotlight
                         </Typography>
-                        <Typography variant="body1" component="p">
+                        <Typography variant="caption" component="p">
                           Powerful localized search for gov websites.
                         </Typography>
-                      </CardContent>
-                      <CardActions className={classes.cardActionsMobile}>
-                        <IconButton component={Link} to="/spotlight" color="primary" className={classes.buttonMobile} aria-label="Go to openly spotlight search">
-                          <ExitToAppIcon />
-                        </IconButton>
-                      </CardActions>
-                    </Card>
-                  </Link>
+                      </Card>
+                    </Link>
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Link to="/serve" className={classes.link}>
+                      <Card className={classes.cardMobile}>
+                        <Typography variant="display1" component="h1">
+                          Serve
+                        </Typography>
+                        <Typography variant="caption" component="p">
+                          File all government paperwork in one place.
+                        </Typography>
+                      </Card>
+                    </Link>
                   </Grid>
                   <Grid item xs={12} md={2} />
                 </Grid>
