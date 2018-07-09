@@ -106,6 +106,9 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit / 2,
         transition: theme.transitions.create(['border-color', 'box-shadow']),
     },
+    submitButton: {
+        backgroundColor: theme.palette.primary['50'],
+    },
     submitStatus: {
         color: theme.palette.common.white,
     },
@@ -467,7 +470,7 @@ class Index extends React.Component {
                                     className={classes.bootstrapTextArea}
                                 />
                             </div>
-                            <Button variant="contained" type="submit">
+                            <Button variant="contained" type="submit" className={classes.submitButton}>
                                 Submit
                             </Button>
                         </form>
