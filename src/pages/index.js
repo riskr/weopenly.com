@@ -390,7 +390,7 @@ class Index extends React.Component {
 
                   <Grid item md={0}/>
                   <Grid item xs={12} md={4}>
-                    <Link to="https://localgov.fyi" className={classes.link}>
+                    <Link to="https://localgov.fyi/?src=weopenly.com" className={classes.link}>
                       <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
                           <Typography variant="caption" className={classes.caption}>EVERYONE</Typography>
