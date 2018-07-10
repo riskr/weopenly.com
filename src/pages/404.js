@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import SentimentDissatisfied from '@material-ui/icons/SentimentDissatisfied';
 import Divider from '@material-ui/core/Divider';
 
 import withRoot from '../withRoot';
@@ -17,7 +16,7 @@ const styles = theme => ({
         height: '60vh',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
     },
     icon: {
@@ -45,12 +44,6 @@ class NotFound extends Component {
         return (
             <div className={classes.root}>
                 <Grid container spacing={16} align="center">
-                    <Grid item xs='auto' sm={4} />
-                    <Grid item xs={12} sm={4} >
-                        <SentimentDissatisfied className={classes.icon} />
-                    </Grid>
-                    <Grid item xs='auto' sm={4} />
-
                     <Grid item xs='auto' sm={4} />
                     <Grid item xs={12} sm={4}>
                         <Typography variant="display3">
