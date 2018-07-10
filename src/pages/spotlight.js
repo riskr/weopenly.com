@@ -96,8 +96,28 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit,
         transition: theme.transitions.create(['border-color', 'box-shadow']),
     },
+    bootstrapInputMobile: {
+        width: '300px',
+        // color: theme.palette.primary['200'],
+        backgroundColor: theme.palette.primary['50'],
+        border: '1px solid #ced4da',
+        borderRadius: 3,
+        padding: '10px 12px 12px 12px',
+        marginBottom: theme.spacing.unit,
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+    },
     bootstrapTextArea: {
         width: '500px',
+        // color: theme.palette.primary['200'],
+        backgroundColor: theme.palette.primary['50'],
+        border: '1px solid #ced4da',
+        borderRadius: 3,
+        padding: '10px 12px 12px 12px',
+        marginBottom: theme.spacing.unit / 2,
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+    },
+    bootstrapTextAreaMobile: {
+        width: '300px',
         // color: theme.palette.primary['200'],
         backgroundColor: theme.palette.primary['50'],
         border: '1px solid #ced4da',
@@ -110,6 +130,9 @@ const styles = theme => ({
         backgroundColor: theme.palette.primary['50'],
     },
     submitStatus: {
+        color: theme.palette.common.white,
+    },
+    whiteText: {
         color: theme.palette.common.white,
     },
 });
@@ -318,14 +341,14 @@ class Index extends React.Component {
                                         durationSeconds="0.5"
                                         easeType="linear"
                                     >
-                                        <Img title="Trends" alt="Spotlight Trends" sizes={this.props.data.gal1.sizes}/>
+                                        <Img title="Trends" alt="Spotlight Trends" sizes={this.props.data.trends.sizes}/>
                                     </Animate>
                                 </Grid>
                                 <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
-                                    <Typography align="center" variant="display1" component="h1" gutterbottom>
+                                    <Typography align="center" variant="display1" component="h1" gutterbottom className={classes.whiteText}>
                                       Integrates in a flash
                                     </Typography>
-                                    <Typography align="center" variant="subheading" component="span">
+                                    <Typography align="center" variant="subheading" component="span" className={classes.whiteText}>
                                        Add the Spotlight search to your gov website with just a line of code. That’s it.
                                     </Typography>
                                 </Grid>
@@ -391,7 +414,7 @@ class Index extends React.Component {
                                         durationSeconds="0.5"
                                         easeType="linear"
                                     >
-                                        <Img title="Trends" alt="Spotlight Trends" sizes={this.props.data.gal1.sizes}/>
+                                        <Img title="Services" alt="Spotlight Services" sizes={this.props.data.services.sizes}/>
                                     </Animate>
                                 </Grid>
                                 <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
@@ -436,7 +459,7 @@ class Index extends React.Component {
                                     placeholder="Name"
                                     value={name}
                                     onChange={this.handleChange}
-                                    className={classes.bootstrapInput}
+                                    className={!isMobileOnly ? classes.bootstrapInput : classes.bootstrapInputMobile}
                                 />
                             </div>
                             <div>
@@ -446,7 +469,7 @@ class Index extends React.Component {
                                     placeholder="City or Jurisdiction"
                                     value={location}
                                     onChange={this.handleChange}
-                                    className={classes.bootstrapInput}
+                                    className={!isMobileOnly ? classes.bootstrapInput : classes.bootstrapInputMobile}
                                 />
                             </div>
                             <div>
@@ -456,7 +479,7 @@ class Index extends React.Component {
                                     placeholder="your@email.com"
                                     value={email}
                                     onChange={this.handleChange}
-                                    className={classes.bootstrapInput}
+                                    className={!isMobileOnly ? classes.bootstrapInput : classes.bootstrapInputMobile}
                                 />
                             </div>
                             <div>
@@ -467,7 +490,7 @@ class Index extends React.Component {
                                     placeholder="Questions or comments"
                                     value={comment}
                                     onChange={this.handleChange}
-                                    className={classes.bootstrapTextArea}
+                                    className={!isMobileOnly ? classes.bootstrapTextArea : classes.bootstrapTextAreaMobile}
                                 />
                             </div>
                             <Button variant="contained" type="submit" className={classes.submitButton}>
@@ -488,7 +511,7 @@ class Index extends React.Component {
                         }
                     </Grid>
                 </Grid>
-                {/* dashboard section end */}
+                {/* get in touch section end */}
             </Grid>
         );
     }
