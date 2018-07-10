@@ -10,6 +10,8 @@ import withRoot from '../withRoot';
 const styles = theme => ({
   container: {
     marginTop: theme.spacing.unit * 3,
+    height: '60vh',
+    marginBottom: theme.spacing.unit * 12,
   },
   title: {
     marginBottom: theme.spacing.unit * 3,

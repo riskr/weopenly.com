@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
 import GatsbyLink from 'gatsby-link';
 import { isMobileOnly } from 'react-device-detect';
 
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
@@ -36,32 +36,26 @@ const Link = ({
 };
 
 const styles = theme => ({
+    root: {
+        // display: 'block',
+        // flexDirection: 'column',
+        // alignItems: 'flex-start',
+    },
     main: {
         width: '100%',
         minHeight: '100vh',
-        display: 'block',
         paddingBottom: 79,
-    },
-    children: {
-        textAlign: 'left',
+        // display: 'block',
     },
     header: {
-        padding: theme.spacing.unit * 3,
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        padding: theme.spacing.unit * 3,
     },
     home: {
         color: theme.palette.primary['500'],
         textDecoration: 'none',
     },
-    // floatingButton: {
-    //     color: theme.palette.common.white,
-    //     background: theme.palette.primary['700'],
-    //     position: 'fixed',
-    //     bottom: theme.spacing.unit * 2,
-    //     right: theme.spacing.unit * 2,
-    //     zIndex: 1
-    // },
     button: {
         textTransform: 'none',
     },
@@ -84,8 +78,8 @@ class DetailTemplate extends React.Component {
         const {classes} = this.props;
 
         return (
-            <Fragment>
-                <Grid container spacing={0} align="center" className={classes.main}>
+            <div className={classes.root}>
+                <Grid container spacing={0} className={classes.main}>
                     <Grid item xs={1}/>
                     <Grid item xs={10} className={classes.header}>
                         <div>
@@ -105,14 +99,12 @@ class DetailTemplate extends React.Component {
                         </div>
                     </Grid>
                     <Grid item xs={1}/>
-                    <div className={classes.children}>
-                        {this.props.children()}
-                    </div>
+                    {this.props.children()}
                 </Grid>
                 <div className={classes.footer}>
                     <Footer />
                 </div>
-            </Fragment>
+            </div>
         );
     }
 }

@@ -13,6 +13,7 @@ import withRoot from '../withRoot';
 
 const styles = theme => ({
     root: {
+        width: '100%',
         height: '60vh',
         display: 'flex',
         flexDirection: 'column',
@@ -53,7 +54,7 @@ class NotFound extends Component {
                     <Grid item xs='auto' sm={4} />
                     <Grid item xs={12} sm={4}>
                         <Typography variant="display3">
-                            {`Oops!`} 
+                            {`Oops!`}
                         </Typography>
                     </Grid>
                     <Grid item xs='auto' sm={4} />
