@@ -1,9 +1,9 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import React, { Fragment } from 'react';
 import GatsbyLink from 'gatsby-link';
 import { isMobileOnly } from 'react-device-detect';
 
 import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
@@ -36,13 +36,17 @@ const Link = ({
 };
 
 const styles = theme => ({
-    // root: {
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     alignItems: 'flex-start',
-    // },
+    main: {
+        width: '100%',
+        minHeight: '100vh',
+        display: 'block',
+        paddingBottom: 79,
+    },
+    children: {
+        textAlign: 'left',
+    },
     header: {
-        margin: theme.spacing.unit * 3,
+        padding: theme.spacing.unit * 3,
         display: 'flex',
         justifyContent: 'space-between'
     },
@@ -64,6 +68,11 @@ const styles = theme => ({
     text: {
         color: 'rgba(30, 30, 50,0.54)'
     },
+    footer: {
+        width: '100%',
+        alignSelf: 'flex-end',
+        marginTop: -79,
+    },
 });
 
 class DetailTemplate extends React.Component {
@@ -72,13 +81,12 @@ class DetailTemplate extends React.Component {
     }
 
     render() {
-        // const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
         const {classes} = this.props;
 
         return (
-            <div>
-                <Grid container spacing={0}>
-                    <Grid item md={1}/>
+            <Fragment>
+                <Grid container spacing={0} align="center" className={classes.main}>
+                    <Grid item xs={1}/>
                     <Grid item xs={10} className={classes.header}>
                         <div>
                             <Typography align="left" variant="headline" component="span">
@@ -96,11 +104,15 @@ class DetailTemplate extends React.Component {
                             </Button>
                         </div>
                     </Grid>
-                    <Grid item md={1}/> 
-                    {this.props.children()}
+                    <Grid item xs={1}/>
+                    <div className={classes.children}>
+                        {this.props.children()}
+                    </div>
                 </Grid>
-                <Footer />
-            </div>
+                <div className={classes.footer}>
+                    <Footer />
+                </div>
+            </Fragment>
         );
     }
 }
