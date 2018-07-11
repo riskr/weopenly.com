@@ -37,7 +37,7 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
   },
   link: {
-    textDecoration: 'none',
+    // textDecoration: 'none',
   },
   a: {
     color: 'rgba(30, 30, 50,0.87)',
@@ -54,10 +54,17 @@ class Footer extends Component {
         <Grid item xs={11} md={10}>
           <footer className={classes.footer}>
             <Grid container className={classes.container}>
-              <Grid item xs={12} md={6} className={isMobileOnly ? classes.copyrightMobile : classes.copyright}>
+              <Grid item xs={12} md={4} className={isMobileOnly ? classes.copyrightMobile : classes.copyright}>
+                <Typography>
+                  Copyright © 2018 Openly Technologies, Inc.
+                </Typography>
+              </Grid>
+              <Grid item xs={12} md={4} className={classes.item}>
+                <a href="mailto:team@weopenly.com">
                   <Typography>
-                    Copyright © 2018 Openly Technologies, Inc.
+                    Contact
                   </Typography>
+                </a>
               </Grid>
               <Grid item xs={12} md={1} className={classes.item}>
                 <Link to="/terms/" className={classes.link}>

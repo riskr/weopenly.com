@@ -239,14 +239,14 @@ class Index extends React.Component {
                                         variant="display3"
                                         className={classes.headerTitle}
                                     >
-                                        The easiest way
+                                        The easiest way to file
                                     </Typography>
                                     <Typography
                                         variant="display3"
                                         gutterBottom
                                         className={classes.headerTitle}
                                     >
-                                        to file your government paperwork.
+                                        your government paperwork.
                                     </Typography>
                                     <Typography align="left" variant="body1" component="span">
                                         We help small businesses to keep track of all their compliance requirements
