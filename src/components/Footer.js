@@ -11,8 +11,8 @@ import withRoot from '../withRoot';
 
 const styles = theme => ({
   footer: {
-    paddingTop: theme.spacing.unit * 3,
-    paddingBottom: theme.spacing.unit * 3,
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 6,
   },
   container: {
     display: 'flex',

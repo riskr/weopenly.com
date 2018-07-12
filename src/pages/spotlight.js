@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 import withRoot from '../withRoot';
+import spotlight from '../images/spotlight.gif';
 
 const styles = theme => ({
     headerLogo: {
@@ -31,10 +32,12 @@ const styles = theme => ({
     },
     heroSectionLeft: {
         marginTop: theme.spacing.unit * 16,
-        marginBottom: theme.spacing.unit *4
+        marginBottom: theme.spacing.unit * 4,
     },
     dashboardSection: {
-        paddingtop: theme.spacing.unit * 2,
+        paddingTop: theme.spacing.unit * 4,
+        paddingBottom: theme.spacing.unit * 4,
+        backgroundColor: theme.palette.common.white,
     },
     trendsSectionLeft: {
         marginTop: theme.spacing.unit * 8,
@@ -48,13 +51,15 @@ const styles = theme => ({
         color: theme.palette.common.white,
     },
     trendsSection: {
-        paddingtop: theme.spacing.unit * 2,
+        paddingTop: theme.spacing.unit * 4,
+        paddingBottom: theme.spacing.unit * 4,
         background: theme.palette.primary['500'],
         boxShadow: `0 0 1px 1px ${theme.palette.primary["50"]}`
     },
     heroSection: {
         background: '#fff',
-        paddingBottom: theme.spacing.unit * 8
+        paddingTop: theme.spacing.unit * 4,
+        paddingBottom: theme.spacing.unit * 4,
     },
     heroSectionRight: {
         marginTop: theme.spacing.unit * 8,
@@ -89,7 +94,7 @@ const styles = theme => ({
     bootstrapInput: {
         width: '500px',
         // color: theme.palette.primary['200'],
-        backgroundColor: theme.palette.primary['50'],
+        backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         borderRadius: 3,
         padding: '10px 12px 12px 12px',
@@ -99,7 +104,7 @@ const styles = theme => ({
     bootstrapInputMobile: {
         width: '300px',
         // color: theme.palette.primary['200'],
-        backgroundColor: theme.palette.primary['50'],
+        backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         borderRadius: 3,
         padding: '10px 12px 12px 12px',
@@ -109,7 +114,7 @@ const styles = theme => ({
     bootstrapTextArea: {
         width: '500px',
         // color: theme.palette.primary['200'],
-        backgroundColor: theme.palette.primary['50'],
+        backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         borderRadius: 3,
         padding: '10px 12px 12px 12px',
@@ -119,7 +124,7 @@ const styles = theme => ({
     bootstrapTextAreaMobile: {
         width: '300px',
         // color: theme.palette.primary['200'],
-        backgroundColor: theme.palette.primary['50'],
+        backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         borderRadius: 3,
         padding: '10px 12px 12px 12px',
@@ -127,13 +132,24 @@ const styles = theme => ({
         transition: theme.transitions.create(['border-color', 'box-shadow']),
     },
     submitButton: {
-        backgroundColor: theme.palette.primary['50'],
+        backgroundColor: theme.palette.common.white,
     },
     submitStatus: {
         color: theme.palette.common.white,
     },
     whiteText: {
         color: theme.palette.common.white,
+    },
+    screenshot: {
+        width: '100%',
+        boxShadow: `0 0 2px 2px ${theme.palette.primary["50"]}`,
+    },
+    display1: {
+        marginTop: theme.spacing.unit * 2,
+    },
+    subheading: {
+        marginTop: theme.spacing.unit * 2,
+        marginBottom: theme.spacing.unit * 2,
     },
 });
 
@@ -250,30 +266,33 @@ class Index extends React.Component {
                                 </Grid>
                                 <Grid item md={1}/>
                                 <Grid item xs={10} sm={3} md={3} className={classes[heroSectionRight]}>
-                                    <Img
+                                    <img
                                         title="Spotlight"
                                         alt="Spotlight search 1"
+                                        src={spotlight}
                                         className={classes.image}
-                                        sizes={this.props.data.gal1.sizes}
                                     />
                                 </Grid>
                             </Fragment>
                         )
                         : (
                             <Fragment>
-                                <Grid item xs={10} sm={6} className={classes[heroSectionLeft]}>
-                                    <Img
+                                <Grid item xs={10} className={classes.heroSectionLeftMobile}>
+                                    <img
                                         title="Spotlight"
                                         alt="Spotlight search"
-                                        sizes={this.props.data.gal1.sizes}
+                                        src={spotlight}
+                                        className={classes.screenshot}
                                     />
                                 </Grid>
-                                <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
-                                    <Typography align="center" variant="display1" component="h1" gutterbottom>
+                                <Grid item xs={1} />
+                                <Grid item xs={1} />
+                                <Grid item xs={10} className={classes[heroSectionRight]}>
+                                    <Typography align="center" variant="display1" component="h1" gutterbottom className={classes.display1}>
                                         The fastest way to access gov services.
                                     </Typography>
-                                    <Typography align="center" variant="subheading" component="span">
-                                        We think that accessing finding and getting gov services should be delightful.Spotlight is our first tool to give access to most important gov services online.
+                                    <Typography align="center" variant="subheading" className={classes.subheading}>
+                                        We think that accessing finding and getting gov services should be delightful. Spotlight is our first tool to give access to most important gov services online.
                                     </Typography>
                                 </Grid>
                             </Fragment>
@@ -329,7 +348,7 @@ class Index extends React.Component {
                         )
                         : (
                             <Fragment>
-                                <Grid item xs={10} sm={6} className={classes[heroSectionLeft]}>
+                                <Grid item xs={10} className={classes[heroSectionLeft]}>
                                     <Animate
                                         startAnimation
                                         startStyle={{
@@ -344,11 +363,13 @@ class Index extends React.Component {
                                         <Img title="Trends" alt="Spotlight Trends" sizes={this.props.data.trends.sizes}/>
                                     </Animate>
                                 </Grid>
-                                <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
-                                    <Typography align="center" variant="display1" component="h1" gutterbottom className={classes.whiteText}>
+                                <Grid item xs={1} />
+                                <Grid item xs={1} />
+                                <Grid item xs={10} className={classes[heroSectionRight]}>
+                                    <Typography align="center" variant="display1" component="h1" gutterbottom className={[classes.whiteText, classes.display1]}>
                                       Integrates in a flash
                                     </Typography>
-                                    <Typography align="center" variant="subheading" component="span" className={classes.whiteText}>
+                                    <Typography align="center" variant="subheading" className={[classes.whiteText, classes.subheading]}>
                                        Add the Spotlight search to your gov website with just a line of code. That’s it.
                                     </Typography>
                                 </Grid>
@@ -402,7 +423,7 @@ class Index extends React.Component {
                         : (
                             <Fragment>
                                 <Grid item xs={1}/>
-                                <Grid item xs={10} sm={6} className={classes[heroSectionLeft]}>
+                                <Grid item xs={10} className={classes[heroSectionLeft]}>
                                     <Animate
                                         startAnimation
                                         startStyle={{
@@ -414,17 +435,25 @@ class Index extends React.Component {
                                         durationSeconds="0.5"
                                         easeType="linear"
                                     >
-                                        <Img title="Services" alt="Spotlight Services" sizes={this.props.data.services.sizes}/>
+                                        <Img
+                                            title="Services"
+                                            alt="Spotlight Services"
+                                            sizes={this.props.data.services.sizes}
+                                            className={classes.screenshot}
+                                        />
                                     </Animate>
                                 </Grid>
-                                <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
-                                    <Typography align="center" variant="display1" component="h1" gutterbottom>
+                                <Grid item xs={1}/>
+                                <Grid item xs={1}/>
+                                <Grid item xs={10} className={classes[heroSectionRight]}>
+                                    <Typography align="center" variant="display1" component="h1" gutterbottom className={classes.display1}>
                                         A single record for all services
                                     </Typography>
-                                    <Typography align="center" variant="subheading" component="span">
+                                    <Typography align="center" variant="subheading" className={classes.subheading}>
                                        Understanding what services matter most to people is the starting point to make your gov service centered. Our dashboard is the starting point to get a glimpse of it. 
                                     </Typography>
                                 </Grid>
+                                <Grid item xs={1}/>
                             </Fragment>
                         )}
 
@@ -523,30 +552,25 @@ Index.propTypes = {
 
 export const query = graphql`
   query spotlightImageQuery {
-    gal1: imageSharp(id: { regex: "/gal1/" }) {
-    sizes {
-        ...GatsbyImageSharpSizes_tracedSVG
-      }
-    }
     services: imageSharp(id: { regex: "/services/"}) {
-      sizes {
+        sizes {
             ...GatsbyImageSharpSizes_tracedSVG
-      }
+        }
     }
     gal2: imageSharp(id: { regex: "/gal2/"}) {
-      sizes {
+        sizes {
             ...GatsbyImageSharpSizes_tracedSVG
-      }
+        }
     }
     gal4: imageSharp(id: { regex: "/gal4/"}) {
-       sizes {
+        sizes {
             ...GatsbyImageSharpSizes_tracedSVG
-      }
+        }
     }
     trends: imageSharp(id: { regex: "/trends/"}) {
-      sizes {
+        sizes {
             ...GatsbyImageSharpSizes_tracedSVG
-      }
+        }
     }
    
   }

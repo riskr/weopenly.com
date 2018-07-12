@@ -9,6 +9,8 @@ import withRoot from '../withRoot';
 
 const styles = theme => ({
   container: {
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
     marginTop: theme.spacing.unit * 3,
   },
 });

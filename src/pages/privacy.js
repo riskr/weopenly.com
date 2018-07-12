@@ -9,8 +9,10 @@ import withRoot from '../withRoot';
 
 const styles = theme => ({
   container: {
-    marginTop: theme.spacing.unit * 3,
     height: '60vh',
+    paddingLeft: theme.spacing.unit * 2,
+    paddingRight: theme.spacing.unit * 2,
+    marginTop: theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit * 12,
   },
   title: {
@@ -31,7 +33,7 @@ class Privacy extends React.Component {
       <Grid container className={classes.container}>
         <Grid item md={1}/>
         <Grid item md={10}>
-          <Typography align="left" variant="display3" className={classes.title}>
+          <Typography align="left" variant="display2" className={classes.title}>
             Privacy Policy
           </Typography>
         </Grid>

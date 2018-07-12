@@ -40,6 +40,7 @@ const styles = theme => ({
         // display: 'block',
         // flexDirection: 'column',
         // alignItems: 'flex-start',
+        backgroundColor: theme.palette.common.white,
     },
     main: {
         width: '100%',
@@ -50,7 +51,10 @@ const styles = theme => ({
     header: {
         display: 'flex',
         justifyContent: 'space-between',
-        padding: theme.spacing.unit * 3,
+        paddingTop: theme.spacing.unit * 3,
+        paddingBottom: theme.spacing.unit * 3,
+        paddingLeft: theme.spacing.unit * 2,
+        paddingRight: theme.spacing.unit * 2,
     },
     home: {
         color: theme.palette.primary['500'],
@@ -80,8 +84,8 @@ class DetailTemplate extends React.Component {
         return (
             <div className={classes.root}>
                 <Grid container spacing={0} className={classes.main}>
-                    <Grid item xs={1}/>
-                    <Grid item xs={10} className={classes.header}>
+                    <Grid item xs={0} md={1}/>
+                    <Grid item xs={12} md={10} className={classes.header}>
                         <div>
                             <Typography align="left" variant="headline" component="span">
                                 <Link className={classes.home} to="/">
@@ -98,7 +102,7 @@ class DetailTemplate extends React.Component {
                             </Button>
                         </div>
                     </Grid>
-                    <Grid item xs={1}/>
+                    <Grid item xs={0} md={1}/>
                     {this.props.children()}
                 </Grid>
                 <div className={classes.footer}>
