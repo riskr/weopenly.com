@@ -26,6 +26,11 @@ const styles = theme => ({
         justifyContent: 'end',
         alignItems: 'flex-end'
     },
+    headline: {
+        marginTop: theme.spacing.unit * 9,
+        marginBottom: theme.spacing.unit * 3,
+        color: theme.palette.primary['500'],
+    },
     trendsSectionLeft: {
         marginTop: theme.spacing.unit * 4
     },
@@ -34,7 +39,8 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit *4
     },
     dashboardSection: {
-        paddingtop: theme.spacing.unit * 2,
+        paddingTop: theme.spacing.unit * 4,
+        paddingBottom: theme.spacing.unit * 4,
     },
     trendsSectionLeft: {
         marginTop: theme.spacing.unit * 8,
@@ -48,7 +54,8 @@ const styles = theme => ({
         color: theme.palette.common.white,
     },
     trendsSection: {
-        paddingtop: theme.spacing.unit * 2,
+        paddingTop: theme.spacing.unit * 4,
+        paddingBottom: theme.spacing.unit * 4,
         background: theme.palette.primary['500'],
         boxShadow: `0 0 1px 1px ${theme.palette.primary["50"]}`
     },
@@ -80,7 +87,7 @@ const styles = theme => ({
         color: theme.palette.primary['500']
     },
     image: {
-        // boxShadow: `0 0 15px 10px ${theme.palette.primary["A400"]}`
+        boxShadow: `0 0 2px 2px #fafafa`
     },
     heroLogo: {
         fontSize: theme.spacing.unit *8,
@@ -98,7 +105,7 @@ const styles = theme => ({
     bootstrapInput: {
         width: '500px',
         // color: theme.palette.primary['200'],
-        backgroundColor: theme.palette.primary['50'],
+        backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         borderRadius: 3,
         padding: '10px 12px 12px 12px',
@@ -108,7 +115,7 @@ const styles = theme => ({
     bootstrapInputMobile: {
         width: '300px',
         // color: theme.palette.primary['200'],
-        backgroundColor: theme.palette.primary['50'],
+        backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         borderRadius: 3,
         padding: '10px 12px 12px 12px',
@@ -118,7 +125,7 @@ const styles = theme => ({
     bootstrapTextArea: {
         width: '500px',
         // color: theme.palette.primary['200'],
-        backgroundColor: theme.palette.primary['50'],
+        backgroundColor: theme.palette.common.white,
         border: '1px solid #ced4da',
         borderRadius: 3,
         padding: '10px 12px 12px 12px',
@@ -126,13 +133,20 @@ const styles = theme => ({
         transition: theme.transitions.create(['border-color', 'box-shadow']),
     },
     submitButton: {
-        backgroundColor: theme.palette.primary['50'],
+        backgroundColor: theme.palette.common.white,
     },
     submitStatus: {
         color: theme.palette.common.white,
     },
     whiteText: {
         color: theme.palette.common.white,
+    },
+    display1: {
+        marginTop: theme.spacing.unit * 2,
+    },
+    subheading: {
+        marginTop: theme.spacing.unit * 2,
+        marginBottom: theme.spacing.unit * 2,
     },
 });
 
@@ -259,14 +273,17 @@ class Index extends React.Component {
                         )
                         : (
                             <Fragment>
-                                <Grid item xs={10} sm={6} className={classes[heroSectionLeft]}>
-
-                                </Grid>
-                                <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
-                                    <Typography align="center" variant="display1" component="h1" gutterbottom>
+                                <Grid item xs={10} className={classes[heroSectionRight]}>
+                                    <Typography
+                                        align="center"
+                                        variant="display3"
+                                        component="h1"
+                                        gutterbottom
+                                        className={classes.headline}
+                                    >
                                         The easiest way to file your government paperwork.
                                     </Typography>
-                                    <Typography align="center" variant="subheading" component="span">
+                                    <Typography align="center" variant="body1" component="span">
                                         We help small businesses to keep track of all their compliance requirements and file them at a single place seamlessly online.
                                     </Typography>
                                 </Grid>
@@ -325,7 +342,7 @@ class Index extends React.Component {
                         )
                         : (
                             <Fragment>
-                                <Grid item xs={10} sm={6} className={classes[heroSectionLeft]}>
+                                <Grid item xs={10} className={classes[heroSectionLeft]}>
                                     <Animate
                                         startAnimation
                                         startStyle={{
@@ -340,16 +357,17 @@ class Index extends React.Component {
                                         <Img
                                             title="Compliance"
                                             alt="compliance screenshot"
-                                            className={classes.image}
                                             sizes={this.props.data.serve1.sizes}
                                         />
                                     </Animate>
                                 </Grid>
-                                <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
-                                    <Typography align="center" variant="display1" component="h1" gutterbottom className={classes.whiteText}>
+                                <Grid item xs={1} />
+                                <Grid item xs={1} />
+                                <Grid item xs={10} className={classes[heroSectionRight]}>
+                                    <Typography align="center" variant="display1" component="h1" gutterbottom className={[classes.whiteText, classes.display1]}>
                                         Compliance made simple.
                                     </Typography>
-                                    <Typography align="center" variant="subheading" component="span" className={classes.whiteText}>
+                                    <Typography align="center" variant="subheading" component="span" className={[classes.whiteText, classes.subheading]}>
                                         Get snapshot of all compliance requirements for your business and file them online.
                                     </Typography>
                                 </Grid>
@@ -408,7 +426,7 @@ class Index extends React.Component {
                         : (
                             <Fragment>
                                 <Grid item xs={1}/>
-                                <Grid item xs={10} sm={6} className={classes[heroSectionLeft]}>
+                                <Grid item xs={10} className={classes[heroSectionLeft]}>
                                     <Animate
                                         startAnimation
                                         startStyle={{
@@ -428,11 +446,13 @@ class Index extends React.Component {
                                         />
                                     </Animate>
                                 </Grid>
-                                <Grid item xs={12} sm={4} className={classes[heroSectionRight]}>
-                                    <Typography align="center" variant="display1" component="h1" gutterbottom>
+                                <Grid item xs={1} />
+                                <Grid item xs={1} />
+                                <Grid item xs={10} className={classes[heroSectionRight]}>
+                                    <Typography align="center" variant="display1" gutterbottom className={classes.display1}>
                                         Manage all records securely.
                                     </Typography>
-                                    <Typography align="center" variant="subheading" component="span">
+                                    <Typography align="center" variant="subheading" className={classes.subheading}>
                                         Keep a record of all your business compliance documents secured in one place.
                                     </Typography>
                                 </Grid>
