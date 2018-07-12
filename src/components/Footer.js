@@ -18,12 +18,12 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'space-evenly',
   },
-  copyright: {
-    marginRight: theme.spacing.unit,
-  },
-  copyrightMobile: {
+  containerMobile: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  copyright: {
     marginRight: theme.spacing.unit,
   },
   item: {
@@ -51,10 +51,11 @@ class Footer extends Component {
     return (
       <Grid container>
         <Grid item xs={0} md={1} />
-        <Grid item xs={11} md={10}>
+        <Grid item xs={12} md={10}>
           <footer className={classes.footer}>
-            <Grid container className={classes.container}>
-              <Grid item xs={12} md={4} className={isMobileOnly ? classes.copyrightMobile : classes.copyright}>
+            {!isMobileOnly
+            ? <Grid container className={classes.container}>
+              <Grid item xs={12} md={4} className={classes.copyright}>
                 <Typography>
                   Copyright © 2018 Openly Technologies, Inc.
                 </Typography>
@@ -77,6 +78,30 @@ class Footer extends Component {
                 </Link>
               </Grid>
             </Grid>
+            : <Grid container className={classes.containerMobile}>
+              <Grid item xs={12}>
+                <Link to="/terms/" className={classes.link}>
+                  <Typography>Terms</Typography>
+                </Link>
+              </Grid>
+              <Grid item xs={12}>
+                <Link to="/privacy/" className={classes.link}>
+                  <Typography>Privacy</Typography>
+                </Link>
+              </Grid>
+              <Grid item xs={12}>
+                <a href="mailto:team@weopenly.com">
+                  <Typography>
+                    Contact
+                  </Typography>
+                </a>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography>
+                  Copyright © 2018 Openly Technologies, Inc.
+                </Typography>
+              </Grid>
+            </Grid>}
           </footer>
         </Grid>
         <Grid item xs={0} md={1} />
