@@ -62,7 +62,7 @@ const styles = theme => ({
     heroSection: {
         height: '100vh',
         background: '#fff',
-        marginBottom: -88,
+        marginBottom: -82,
         paddingBottom: theme.spacing.unit * 8,
     },
     heroSectionTop: {
@@ -310,10 +310,18 @@ class Index extends React.Component {
                                     <Typography
                                         align="left"
                                         className={classes.trendsSectionleftHeader}
-                                        variant="caption"
+                                        variant="body2"
                                         component="span"
                                     >
-                                        Get snapshot of all compliance requirements for your business and file them online.
+                                        Get snapshot of all compliance requirements for your business
+                                    </Typography>
+                                    <Typography
+                                        align="left"
+                                        className={classes.trendsSectionleftHeader}
+                                        variant="body2"
+                                        component="span"
+                                    >
+                                        and file them online.
                                     </Typography>
                                 </Grid>
                                 <Grid item md={1}/>
@@ -415,10 +423,17 @@ class Index extends React.Component {
                                     </Typography>
                                     <Typography
                                         align="right"
-                                        variant="caption"
+                                        variant="body2"
                                         component="span"
                                     >
-                                        Keep a record of all your business compliance documents secured in one place.
+                                        Keep a record of all your business compliance documents
+                                    </Typography>
+                                    <Typography
+                                        align="right"
+                                        variant="body2"
+                                        component="span"
+                                    >
+                                        secured in one place.
                                     </Typography>
                                 </Grid>
                             </Fragment>

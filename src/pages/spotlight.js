@@ -34,6 +34,9 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 16,
         marginBottom: theme.spacing.unit * 4,
     },
+    heroSectionLeftMobile: {
+        marginTop: theme.spacing.unit * 4,
+    },
     dashboardSection: {
         paddingTop: theme.spacing.unit * 4,
         paddingBottom: theme.spacing.unit * 4,
@@ -73,7 +76,7 @@ const styles = theme => ({
         background: theme.palette.primary['500']
     },
     headerTitle: {
-        color: theme.palette.primary['500']
+        color: theme.palette.primary['500'],
     },
     image: {
         boxShadow: `0 0 15px 10px ${theme.palette.primary["A400"]}`
@@ -247,25 +250,35 @@ class Index extends React.Component {
 
                 {/* hero section start */}
                 <Grid container className={classes.heroSection} spacing={0}>
-                    <Grid xs={1} item sm={1} md={2}/> {!isMobileOnly
+                    <Grid xs={1} item sm={1} md={1}/> {!isMobileOnly
                         ? (
                             <Fragment>
-                                <Grid item xs={10} sm={10} md={4} className={classes[heroSectionLeft]}>
+                                <Grid item xs={10} sm={10} md={6} className={classes[heroSectionLeft]}>
                                     <Typography
                                         className={classes.headerTitle}
                                         align="left"
-                                        variant="display1"
+                                        variant="display3"
+                                        component="h1"
+                                    >
+                                        The fastest way to access
+                                    </Typography>
+                                    <Typography
+                                        className={classes.headerTitle}
+                                        align="left"
+                                        variant="display3"
                                         component="h1"
                                         gutterBottom
                                     >
-                                        The fastest way to access gov services.
+                                        gov services online.
                                     </Typography>
-                                    <Typography align="left" variant="caption" component="span">
-                                      We think that accessing finding and getting gov services should be delightful. Spotlight is our first tool to give access to most important gov services online. 
+                                    <Typography align="left" variant="body1" component="span">
+                                        We help government websites to showcase their services,
+                                    </Typography>
+                                    <Typography align="left" variant="body1" component="span">
+                                        instantly saving time and money for all.
                                     </Typography>
                                 </Grid>
-                                <Grid item md={1}/>
-                                <Grid item xs={10} sm={3} md={3} className={classes[heroSectionRight]}>
+                                <Grid item xs={10} sm={3} md={4} className={classes[heroSectionRight]}>
                                     <img
                                         title="Spotlight"
                                         alt="Spotlight search 1"
@@ -277,6 +290,16 @@ class Index extends React.Component {
                         )
                         : (
                             <Fragment>
+                                <Grid item xs={10} className={classes[heroSectionRight]}>
+                                    <Typography align="center" variant="display1" component="h1" gutterbottom className={[classes.display1, classes.headerTitle]}>
+                                        The fastest way to access gov services online.
+                                    </Typography>
+                                    <Typography align="center" variant="subheading" className={classes.subheading}>
+                                        We help government websites to showcase their services, instantly saving time and money for all.
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={1} />
+                                <Grid item xs={1} />
                                 <Grid item xs={10} className={classes.heroSectionLeftMobile}>
                                     <img
                                         title="Spotlight"
@@ -285,19 +308,9 @@ class Index extends React.Component {
                                         className={classes.screenshot}
                                     />
                                 </Grid>
-                                <Grid item xs={1} />
-                                <Grid item xs={1} />
-                                <Grid item xs={10} className={classes[heroSectionRight]}>
-                                    <Typography align="center" variant="display1" component="h1" gutterbottom className={classes.display1}>
-                                        The fastest way to access gov services.
-                                    </Typography>
-                                    <Typography align="center" variant="subheading" className={classes.subheading}>
-                                        We think that accessing finding and getting gov services should be delightful. Spotlight is our first tool to give access to most important gov services online.
-                                    </Typography>
-                                </Grid>
                             </Fragment>
                         )}
-                    <Grid item xs={1} sm={1} md={2}/> {/* hero section end */}
+                    <Grid item xs={1} sm={1} md={1}/> {/* hero section end */}
                 </Grid>
 
                 {/* trends section start */}
@@ -313,14 +326,23 @@ class Index extends React.Component {
                                         component="h1"
                                         gutterBottom
                                     >
-                                      Integrates in a flash
+                                        Integrates in a flash
                                     </Typography>
                                     <Typography
                                         align="left"
                                         className={classes.trendsSectionleftHeader}
-                                        variant="caption"
-                                        component="span">
-                                        Add the Spotlight search to your gov website with just a line of code. That’s it.
+                                        variant="body2"
+                                        component="span"
+                                    >
+                                        Add the Spotlight search to your gov website with just a line of code.
+                                    </Typography>
+                                    <Typography
+                                        align="left"
+                                        className={classes.trendsSectionleftHeader}
+                                        variant="body2"
+                                        component="span"
+                                    >
+                                        That’s it.
                                     </Typography>
                                 </Grid>
                                 <Grid item md={1}/>
@@ -367,10 +389,10 @@ class Index extends React.Component {
                                 <Grid item xs={1} />
                                 <Grid item xs={10} className={classes[heroSectionRight]}>
                                     <Typography align="center" variant="display1" component="h1" gutterbottom className={[classes.whiteText, classes.display1]}>
-                                      Integrates in a flash
+                                        Integrates in a flash
                                     </Typography>
                                     <Typography align="center" variant="subheading" className={[classes.whiteText, classes.subheading]}>
-                                       Add the Spotlight search to your gov website with just a line of code. That’s it.
+                                        Add the Spotlight search to your gov website with just a line of code. That’s it.
                                     </Typography>
                                 </Grid>
                             </Fragment>
@@ -398,7 +420,7 @@ class Index extends React.Component {
                                         <Img
                                             title="Services"
                                             alt="Spotlight Services"
-                                            sizes={this.props.data.services.sizes}/>
+                                            sizes={this.props.data.services1.sizes}/>
                                     </Animate>
 
                                 </Grid>
@@ -408,14 +430,16 @@ class Index extends React.Component {
                                         align="right"  
                                         variant="display1"
                                         component="h1"
-                                        gutterBottom>
+                                        gutterBottom
+                                    >
                                         A single record for all services
                                     </Typography>
                                     <Typography
                                         align="right"
-                                        variant="caption"
-                                        component="span">
-                                       Understanding what services matter most to people is the starting point to make your gov service centered. Our dashboard is the starting point to get a glimpse of it. 
+                                        variant="body2"
+                                        component="span"
+                                    >
+                                        Spotlight makes it ridiculously easy to manage all key services that matter most to people. It also helps you identify and improve key interactions.
                                     </Typography>
                                 </Grid>
                             </Fragment>
@@ -438,7 +462,7 @@ class Index extends React.Component {
                                         <Img
                                             title="Services"
                                             alt="Spotlight Services"
-                                            sizes={this.props.data.services.sizes}
+                                            sizes={this.props.data.services1.sizes}
                                             className={classes.screenshot}
                                         />
                                     </Animate>
@@ -450,7 +474,7 @@ class Index extends React.Component {
                                         A single record for all services
                                     </Typography>
                                     <Typography align="center" variant="subheading" className={classes.subheading}>
-                                       Understanding what services matter most to people is the starting point to make your gov service centered. Our dashboard is the starting point to get a glimpse of it. 
+                                        Spotlight makes it ridiculously easy to manage all key services that matter most to people. It also helps you identify and improve key interactions.
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1}/>
@@ -552,7 +576,7 @@ Index.propTypes = {
 
 export const query = graphql`
   query spotlightImageQuery {
-    services: imageSharp(id: { regex: "/services/"}) {
+    services1: imageSharp(id: { regex: "/services1/"}) {
         sizes {
             ...GatsbyImageSharpSizes_tracedSVG
         }

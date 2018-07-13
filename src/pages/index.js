@@ -183,22 +183,30 @@ const styles = theme => ({
     alignItems: 'center',
   },
   caption: {
+    fontSize: '0.75rem',
     marginBottom: theme.spacing.unit,
+    color: theme.palette.primary['500'],
   },
   cardMobile: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit * 3,
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 2,
     // minHeight: '128px',
     // position: 'relative',
     // boxShadow: `0 0 10px 5px ${theme.palette.primary["A200"]}`,
-    // borderTop: `6px solid ${theme.palette.primary["500"]}`,
+    borderTop: `6px solid ${theme.palette.primary["500"]}`,
+  },
+  cardTitleMobile: {
+    marginBottom: theme.spacing.unit,
+  },
+  cardCaptionMobile: {
+    color: 'gray',
   },
   link: {
     textDecoration: 'none',
@@ -207,6 +215,17 @@ const styles = theme => ({
     height: '100vh',
     marginTop: -88,
     // marginBottom: -88,
+  },
+  section1Mobile: {
+    height: '100vh',
+    marginTop: -88,
+    paddingTop: theme.spacing.unit * 6,
+    // marginBottom: -88,
+  },
+
+  section1BMobile: {
+    height: '100vh',
+    paddingTop: theme.spacing.unit * 6,
   },
   section2: {
     height: '100vh',
@@ -220,7 +239,7 @@ const styles = theme => ({
     marginBottom: -79,
   },
   section3Mobile: {
-    height: '100vh',
+    height: '110vh',
     marginBottom: -141,
   },
   // fabWrapper: {
@@ -311,6 +330,7 @@ class Index extends React.Component {
     };
     // this.handleScroll = this.handleScroll.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickMobile = this.handleClickMobile.bind(this);
   }
 
   // componentDidMount() {
@@ -327,6 +347,15 @@ class Index extends React.Component {
 
   handleClick() {
     if (this.state.section < 3) this.setState({ section: this.state.section + 1 });
+    else this.setState({ section: 1 });
+
+    document.querySelector(`#section${this.state.section}`).scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
+  handleClickMobile() {
+    if (this.state.section < 4) this.setState({ section: this.state.section + 1 });
     else this.setState({ section: 1 });
 
     document.querySelector(`#section${this.state.section}`).scrollIntoView({
@@ -419,7 +448,7 @@ class Index extends React.Component {
                             Powerful localized search
                           </Typography>
                           <Typography variant="body1" component="p">
-                            for gov websites.
+                            to showcase services.
                           </Typography>
                         </CardContent>
                       </Card>
@@ -543,7 +572,7 @@ class Index extends React.Component {
           </Button>
         </Fragment>
         : <Fragment>
-          <div id="section1" className={classes.section1}>
+          <div id="section1" className={classes.section1Mobile}>
             <Grid container spacing={0}>
               <Helmet defaultTitle={`Openly`} titleTemplate={`%s | Openly`}>
                 <meta name="og:type" content="website"/>
@@ -610,7 +639,10 @@ class Index extends React.Component {
                 </Typography>
               </Grid>
               <Grid item xs={1} md={3}></Grid>
-
+            </Grid>
+          </div>
+          <div id="section2" className={classes.section1BMobile}>
+            <Grid container>
               <Grid item xs={12} >
                 <Grid container spacing={0} className={classes.featuresMobile}>
 
@@ -618,11 +650,14 @@ class Index extends React.Component {
                   <Grid item xs={12} md={3}>
                     <Link to="https://localgov.fyi" className={classes.link}>
                       <Card className={classes.cardMobile}>
-                        <Typography variant="display1" component="h1">
+                        <Typography variant="display1" component="h1" className={classes.cardTitleMobile}>
                           Localgov.fyi
                         </Typography>
-                        <Typography variant="caption" component="p">
-                          Find any local government service instantly.
+                        <Typography variant="body2" component="p" className={classes.cardCaptionMobile}>
+                          Find any local government
+                        </Typography>
+                        <Typography variant="body2" component="p" className={classes.cardCaptionMobile}>
+                          service instantly.
                         </Typography>
                       </Card>
                     </Link>
@@ -631,11 +666,14 @@ class Index extends React.Component {
                   <Grid item xs={12} md={3}>
                     <Link to="/spotlight" className={classes.link}>
                       <Card className={classes.cardMobile}>
-                        <Typography variant="display1" component="h1">
+                        <Typography variant="display1" component="h1" className={classes.cardTitleMobile}>
                           Spotlight
                         </Typography>
-                        <Typography variant="caption" component="p">
-                          Powerful localized search for gov websites.
+                        <Typography variant="body2" component="p" className={classes.cardCaptionMobile}>
+                          Powerful localized search
+                        </Typography>
+                        <Typography variant="body2" component="p" className={classes.cardCaptionMobile}>
+                          to showcase services.
                         </Typography>
                       </Card>
                     </Link>
@@ -643,11 +681,14 @@ class Index extends React.Component {
                   <Grid item xs={12} md={3}>
                     <Link to="/serve" className={classes.link}>
                       <Card className={classes.cardMobile}>
-                        <Typography variant="display1" component="h1">
+                        <Typography variant="display1" component="h1" className={classes.cardTitleMobile}>
                           Serve
                         </Typography>
-                        <Typography variant="caption" component="p">
-                          File all government paperwork in one place.
+                        <Typography variant="body2" component="p" className={classes.cardCaptionMobile}>
+                          File all government paperwork
+                        </Typography>
+                        <Typography variant="body2" component="p" className={classes.cardCaptionMobile}>
+                          in one place.
                         </Typography>
                       </Card>
                     </Link>
@@ -655,11 +696,9 @@ class Index extends React.Component {
                   <Grid item xs={12} md={2} />
                 </Grid>
               </Grid>
-              <Grid item xs={12} className={classes.fabWrapper}>
-              </Grid>
             </Grid>
           </div>
-          <div id="section2" className={classes.section2}>
+          <div id="section3" className={classes.section2}>
             <Grid container>
               <Grid item xs={1} />
               <Grid item xs={10} className={classes.heroSectionMobile}>
@@ -702,21 +741,13 @@ class Index extends React.Component {
                   component="p"
                   className={[classes.subhead, classes.white]}
                 >
-                  to move our society forward. We are starting by making it easier than ever
-                </Typography>
-                <Typography
-                  variant="body1"
-                  align="center"
-                  component="p"
-                  className={[classes.subhead, classes.white]}
-                >
-                  to find any local government service with our search and integrate it into any government website.
+                  to move our society forward.
                 </Typography>
               </Grid>
               <Grid item xs={1} />
             </Grid>
           </div>
-          <div id="section3" className={classes.section3Mobile}>
+          <div id="section4" className={classes.section3Mobile}>
             <Grid container>
               <Grid item xs={1} />
               <Grid item xs={10} className={classes.heroSectionMobile}>
@@ -754,7 +785,7 @@ class Index extends React.Component {
               <Grid item xs={1} md={2}></Grid>
             </Grid>
           </div>
-          <Button variant="fab" mini onClick={this.handleClick} className={classes.fabMobile}>
+          <Button variant="fab" mini onClick={this.handleClickMobile} className={classes.fabMobile}>
             {this.state.section > 1
               ? <ExpandMore className={classes.icon}/>
               : <ExpandLess className={classes.icon}/>}
