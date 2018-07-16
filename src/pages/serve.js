@@ -313,7 +313,7 @@ class Index extends React.Component {
                                         variant="body2"
                                         component="span"
                                     >
-                                        Get snapshot of all compliance requirements for your business
+                                        Get a snapshot of all compliance requirements for your business
                                     </Typography>
                                     <Typography
                                         align="left"
@@ -376,7 +376,7 @@ class Index extends React.Component {
                                         Compliance made simple.
                                     </Typography>
                                     <Typography align="center" variant="subheading" component="span" className={[classes.whiteText, classes.subheading]}>
-                                        Get snapshot of all compliance requirements for your business and file them online.
+                                        Get a snapshot of all compliance requirements for your business and file them online.
                                     </Typography>
                                 </Grid>
                             </Fragment>
