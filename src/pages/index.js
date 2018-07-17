@@ -213,7 +213,7 @@ const styles = theme => ({
   },
   section1: {
     height: '100vh',
-    marginTop: -88,
+    marginTop: -82,
     // marginBottom: -88,
   },
   section1Mobile: {
