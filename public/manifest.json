@@ -1,4 +1,6 @@
 {
-  "main.js": "bundle-for-css.js",
-  "main.js.map": "render-page.js.map"
+  "main.css": "styles.css",
+  "main.js": "render-page.js",
+  "main.js.map": "render-page.js.map",
+  "static/spotlight.gif": "static/spotlight.38052549.gif"
 }

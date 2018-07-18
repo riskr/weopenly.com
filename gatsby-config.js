@@ -2,8 +2,8 @@ const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
-    title: `Search for local government organizations, members, and services`,
-    siteUrl: `https://localgov.fyi`
+    title: `Delightful Governance`,
+    siteUrl: `https://weopenly.com`
   },
   plugins: [
     /*
@@ -51,8 +51,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Local Gov`,
-        short_name: `localgov`,
+        name: `Openly`,
+short_name : `Openly`,
         start_url: `/`,
         background_color: `#f7f7f7`,
         theme_color : `#0000ca`,

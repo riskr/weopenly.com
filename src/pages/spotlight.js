@@ -243,7 +243,7 @@ class Index extends React.Component {
             <Grid container spacing={0}>
                 {/* header section start */}
                 <Helmet>
-                    <title>{`Openly spotlight | Localgov.fyi`} </title>
+                    <title>{`Openly Spotlight`} </title>
                     <meta name="description" content={`Openly spotlight for local governments `} />
                 </Helmet>
                  {/* hero section end */}

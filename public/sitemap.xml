@@ -3,6 +3,7 @@
 <url> <loc>https://localgov.fyi/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://localgov.fyi/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://localgov.fyi/privacy/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://localgov.fyi/serve/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://localgov.fyi/spotlight/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://localgov.fyi/terms/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
