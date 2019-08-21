@@ -233,6 +233,7 @@ class Index extends React.Component {
             'trendsSectionRightMob': isMobileOnly
         });
 
+        console.log(this.props.data.serve1.sizes);
         return (
             <Grid container spacing={0}>
                 {/* header section start */}

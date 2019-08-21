@@ -419,15 +419,15 @@ class Index extends React.Component {
 
                   <Grid item md={0}/>
                   <Grid item xs={12} md={4}>
-                    <Link to="https://localgov.fyi/?src=weopenly.com" className={classes.link}>
+                    <Link to="https://evergov.com/?src=weopenly.com" className={classes.link}>
                       <Card className={classes.card}>
                         <CardContent className={classes.cardContent}>
                           <Typography variant="caption" className={classes.caption}>EVERYONE</Typography>
                           <Typography gutterBottom variant="display1" component="h1">
-                            Localgov.fyi
+                            Evergov
                           </Typography>
                           <Typography variant="body1" component="p">
-                            Find any local government
+                            Access any local government
                           </Typography>
                           <Typography variant="body1" component="p">
                             service instantly.
@@ -648,13 +648,13 @@ class Index extends React.Component {
 
                   <Grid item md={2}/>
                   <Grid item xs={12} md={3}>
-                    <Link to="https://localgov.fyi" className={classes.link}>
+                    <Link to="https://evergov.com" className={classes.link}>
                       <Card className={classes.cardMobile}>
                         <Typography variant="display1" component="h1" className={classes.cardTitleMobile}>
-                          Localgov.fyi
+                          Evergov
                         </Typography>
                         <Typography variant="body2" component="p" className={classes.cardCaptionMobile}>
-                          Find any local government
+                          Access any local government
                         </Typography>
                         <Typography variant="body2" component="p" className={classes.cardCaptionMobile}>
                           service instantly.

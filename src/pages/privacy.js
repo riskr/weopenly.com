@@ -45,7 +45,7 @@ class Privacy extends React.Component {
         <Grid item md={1}/>
         <Grid item md={1}/>
         <Grid item md={10}>
-          <Typography variant="display1" className={classes.section}>Localgov.fyi</Typography>
+          <Typography variant="display1" className={classes.section}>Evergov</Typography>
           <Typography variant="headline" className={classes.headline}>What, how, and why:</Typography>
           <Typography className={classes.body}>
             We track user interactions such as, searches, suggestion clicks, page views, and external link clicks, browser fingerprint, type of browser, type of device, and ip address.
